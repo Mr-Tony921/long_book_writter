@@ -1,0 +1,53 @@
+{
+  "book_id": "reborn_coder_120",
+  "current_stage": "立项阶段：重生职场+甜感创业长线",
+  "naming": {
+    "style": "mixed",
+    "titles": [
+      {
+        "name": "重启纪事",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "重启与代码",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "在代码中重生",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "重启的边界",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "我在代码当重启",
+        "style": "funny",
+        "reason": "夸张表达，适合吸睛传播"
+      },
+      {
+        "name": "重启，这剧情不对劲",
+        "style": "funny",
+        "reason": "夸张表达，适合吸睛传播"
+      },
+      {
+        "name": "开局一个重启，结局全靠编",
+        "style": "funny",
+        "reason": "夸张表达，适合吸睛传播"
+      },
+      {
+        "name": "别催更，我在代码救场",
+        "style": "funny",
+        "reason": "夸张表达，适合吸睛传播"
+      }
+    ],
+    "fallback": true,
+    "error": "request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError(\"HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)\"))",
+    "generated_at_utc": "2026-04-03T08:29:36.537790+00:00"
+  },
+  "generated_at_utc": "2026-04-03T08:29:36.537801+00:00"
+}

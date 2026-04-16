@@ -1,0 +1,463 @@
+[START] 2026-04-09 03:14:48
+[SKIP] chapter=14 exists
+[SKIP] chapter=15 exists
+[SKIP] chapter=16 exists
+[SKIP] chapter=17 exists
+[SKIP] chapter=18 exists
+[SKIP] chapter=19 exists
+[SKIP] chapter=20 exists
+[SKIP] chapter=21 exists
+[SKIP] chapter=22 exists
+[SKIP] chapter=23 exists
+[SKIP] chapter=24 exists
+[RUN] chapter=25 title=渠道对赌
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 25,
+  "chapter_title": "渠道对赌",
+  "passed": true,
+  "review_score": 45,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 45,
+        "issues": [
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“核实王堔在初代项目转让事件中的真实立场”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“确认陈曦的处境并实施救援”",
+            "severity": "low"
+          },
+          {
+            "type": "repetition",
+            "detail": "正文开篇写苏哲“压得他指节都泛了白”，后文王堔情绪激动时再次使用“指节泛白”的同一表述，细节描写用词重复，影响阅读体验",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "改写重复的“指节泛白”细节表述，避免用词重复"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 9,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "正文开篇写苏哲“压得他指节都泛了白”，后文王堔情绪激动时再次使用“指节泛白”的同一表述，细节描写用词重复，影响阅读体验",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "改写重复的“指节泛白”细节表述，避免用词重复"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 81,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“核实王堔在初代项目转让事件中的真实立场”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“确认陈曦的处境并实施救援”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0025_渠道对赌.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-09T03:19:54.362680+00:00"
+}
+[DONE] chapter=25
+[RUN] chapter=26 title=融资掣肘
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 26,
+  "chapter_title": "融资掣肘",
+  "passed": true,
+  "review_score": 85,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 云帆科技, 时间回流, 云帆董事",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“营救被困顶楼设备间的陈曦，获取揭露重生秘密的核心协议”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“擒获走投无路的张广涛，推进云帆黑幕调查，落实万客来项目控制权”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 95,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 云帆科技, 时间回流, 云帆董事",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“营救被困顶楼设备间的陈曦，获取揭露重生秘密的核心协议”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“擒获走投无路的张广涛，推进云帆黑幕调查，落实万客来项目控制权”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0026_融资掣肘.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-09T03:24:08.200918+00:00"
+}
+[DONE] chapter=26
+[RUN] chapter=27 title=竞品修复
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 27,
+  "chapter_title": "竞品修复",
+  "passed": true,
+  "review_score": 44,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 44,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 初代万客, 代万客来, 时间回流",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“揭露GPT-8时间回流实验受试者名单中第二名的身份”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“对接旧名片对应的潜在投资方，推进万客来融资问题解决”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 10,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 79,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 初代万客, 代万客来, 时间回流",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“揭露GPT-8时间回流实验受试者名单中第二名的身份”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“对接旧名片对应的潜在投资方，推进万客来融资问题解决”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0027_竞品修复.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-09T03:29:06.803132+00:00"
+}
+[DONE] chapter=27
+[RUN] chapter=28 title=董事博弈
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 28,
+  "chapter_title": "董事博弈",
+  "passed": false,
+  "review_score": 82,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 82,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 时间回流, 把万客来",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：城市“临江市”未出现",
+            "severity": "mid"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“揭开云帆幕后主使与苏哲父亲二十年过往的核心真相”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进万客来融资困局的破局，明确后续发展方向”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。",
+          "补充场景锚定信息，明确本章发生城市为“临江市”。"
+        ],
+        "pass": false,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 98,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 66,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 时间回流, 把万客来",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：城市“临江市”未出现",
+                "severity": "mid"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“揭开云帆幕后主使与苏哲父亲二十年过往的核心真相”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进万客来融资困局的破局，明确后续发展方向”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。",
+              "补充场景锚定信息，明确本章发生城市为“临江市”。"
+            ],
+            "pass": false
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "",
+  "generated_at_utc": "2026-04-09T03:34:06.126532+00:00",
+  "human_intervention_required": true
+}
+[STOP] quality_gate_failed_at=28

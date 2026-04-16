@@ -1,0 +1,11 @@
+{
+  "book_id": "reborn_coder_120",
+  "title": "重启代码人生",
+  "created_at_utc": "2026-04-03T08:29:22.495212+00:00",
+  "model_defaults": {
+    "planning": "doubao-seed-2.0-lite-260215",
+    "writing": "doubao-seed-2.0-lite-260215",
+    "review": "doubao-seed-2.0-lite-260215",
+    "editing": "doubao-seed-2.0-lite-260215"
+  }
+}

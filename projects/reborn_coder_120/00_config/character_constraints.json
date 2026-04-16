@@ -1,0 +1,16 @@
+{
+  "fixed_names": [
+    "苏哲",
+    "王堔",
+    "张广涛",
+    "林溪",
+    "陈曦"
+  ],
+  "banned_aliases": {
+    "林辰": "苏哲",
+    "张建国": "张广涛",
+    "王经理": "王堔"
+  },
+  "notes": "Long-form consistency guard: keep names stable across all chapters."
+}
+

@@ -1,0 +1,74 @@
+{
+  "book_id": "mvp_demo",
+  "input": {
+    "book_id": "mvp_demo",
+    "brief": "现代都市悬疑，退役刑警调查连环失踪案",
+    "target_words": 30000,
+    "tone": "冷峻现实，少说教",
+    "user_mode": "pro",
+    "must_keep": "现实逻辑",
+    "banned": "超能力",
+    "direction_hint": "中段允许转折"
+  },
+  "plan": {
+    "fallback": true,
+    "error": "request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError(\"HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)\"))",
+    "book_positioning": "长篇剧情向中文小说",
+    "core_theme": "在困境中自我重塑",
+    "core_conflict": "个人信念与现实秩序冲突",
+    "ending_direction": "开放式希望结局",
+    "anchors": {
+      "book": [
+        "核心主题不漂移",
+        "关键人物动机一致"
+      ],
+      "volume": [
+        "每卷必须推进主冲突",
+        "每卷结尾保留悬念"
+      ],
+      "chapter": [
+        "每章至少完成一个剧情目标",
+        "避免重复段落和口号式总结"
+      ]
+    },
+    "options_for_author": [
+      {
+        "id": "A",
+        "idea": "主角提早暴露身份，换取关键信息",
+        "pros": "冲突快速升级",
+        "risks": "后续空间被压缩"
+      },
+      {
+        "id": "B",
+        "idea": "主角保持潜伏，先查清幕后关系",
+        "pros": "逻辑更稳，铺垫充分",
+        "risks": "前期节奏可能偏慢"
+      }
+    ],
+    "volume_outline": [
+      {
+        "volume": 1,
+        "goal": "建立世界规则与主冲突",
+        "chapter_range": "1-10"
+      },
+      {
+        "volume": 2,
+        "goal": "冲突升级与关键抉择",
+        "chapter_range": "11-20"
+      }
+    ],
+    "chapter_seed": [
+      {
+        "chapter": 1,
+        "goal": "抛出异常事件",
+        "cliffhanger": "主角被迫做出选择"
+      },
+      {
+        "chapter": 2,
+        "goal": "揭示代价",
+        "cliffhanger": "更大势力现身"
+      }
+    ]
+  },
+  "generated_at_utc": "2026-04-03T07:56:08.942606+00:00"
+}

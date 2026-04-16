@@ -1,0 +1,158 @@
+[START] 2026-04-07 11:55:40
+[SKIP] chapter=14 exists
+[SKIP] chapter=15 exists
+[SKIP] chapter=16 exists
+[SKIP] chapter=17 exists
+[SKIP] chapter=18 exists
+[SKIP] chapter=19 exists
+[SKIP] chapter=20 exists
+[SKIP] chapter=21 exists
+[SKIP] chapter=22 exists
+[RUN] chapter=23 title=封控拆招
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 23,
+  "chapter_title": "封控拆招",
+  "passed": true,
+  "review_score": 85,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 淡蓝色的, 万客来项, 客来项目",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进苏哲对是否触发新一轮时间回流的决策”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进董事局围堵备件库后的冲突升级”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "文中存在笔误，描述电缆状态的「未被剪短」用词错误，应为「未被剪断」，不影响核心逻辑但影响阅读",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。",
+          "修正笔误：将「未被剪短」改为「未被剪断」"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 95,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "文中存在笔误，描述电缆状态的「未被剪短」用词错误，应为「未被剪断」，不影响核心逻辑但影响阅读",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "修正笔误：将「未被剪短」改为「未被剪断」"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 淡蓝色的, 万客来项, 客来项目",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进苏哲对是否触发新一轮时间回流的决策”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进董事局围堵备件库后的冲突升级”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0023_封控拆招.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T12:00:47.784731+00:00"
+}
+[DONE] chapter=23
+[RUN] chapter=24 title=公测验收
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 24,
+  "chapter_title": "公测验收",
+  "passed": false,
+  "review_score": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": false,
+      "draft_error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)",
+      "review": {},
+      "edit_ok": false,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "",
+  "generated_at_utc": "2026-04-07T12:03:48.535948+00:00",
+  "human_intervention_required": true
+}
+[STOP] quality_gate_failed_at=24

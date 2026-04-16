@@ -1,0 +1,476 @@
+[START] 2026-04-07 08:41:30
+[INFO] publish_dir=/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish
+[RUN] chapter=11 title=主线推进011
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 11,
+  "chapter_title": "主线推进011",
+  "passed": true,
+  "review_score": 89,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 89,
+        "issues": [
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进万客来提前公测的各项准备，完成流量渠道对接与最终上线前测试”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“排查项目潜在风险，应对张广涛即将发动的新一轮暗手”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前文明确张广涛的威胁内容是陈曦发送的彩信，后文误写为「盯着陈曦那条短信」，存在细节表述不一致",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "修正彩信误写为短信的细节不一致问题"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 95,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "前文明确张广涛的威胁内容是陈曦发送的彩信，后文误写为「盯着陈曦那条短信」，存在细节表述不一致",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "修正彩信误写为短信的细节不一致问题"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 84,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进万客来提前公测的各项准备，完成流量渠道对接与最终上线前测试”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“排查项目潜在风险，应对张广涛即将发动的新一轮暗手”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0011_主线推进011.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T08:45:20.248876+00:00"
+}
+[DONE] chapter=11
+[RUN] chapter=12 title=主线推进012
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 12,
+  "chapter_title": "主线推进012",
+  "passed": true,
+  "review_score": 85,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 云帆科技, 原生权限",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“确认GPT-8生成的全域反制方案，针对性化解张广涛的双重发难”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进万客来提前公测的最终准备，确保项目按计划上线”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "本章建议出现的关键词「LLM辅助」未在正文中体现，不影响核心内容合规，属于轻微问题",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 95,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "本章建议出现的关键词「LLM辅助」未在正文中体现，不影响核心内容合规，属于轻微问题",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 云帆科技, 原生权限",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“确认GPT-8生成的全域反制方案，针对性化解张广涛的双重发难”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进万客来提前公测的最终准备，确保项目按计划上线”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0012_主线推进012.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T08:50:51.452692+00:00"
+}
+[DONE] chapter=12
+[RUN] chapter=13 title=主线推进013
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 13,
+  "chapter_title": "主线推进013",
+  "passed": true,
+  "review_score": 87,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 87,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 张广涛的",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进临时投委会上苏哲对张广涛”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“老周发难的应对过程”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 98,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 张广涛的",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进临时投委会上苏哲对张广涛”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“老周发难的应对过程”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0013_主线推进013.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T08:57:29.753454+00:00"
+}
+[DONE] chapter=13
+[RUN] chapter=14 title=主线推进014
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 14,
+  "chapter_title": "主线推进014",
+  "passed": false,
+  "review_score": 81,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 81,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 明天公测",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：云帆科技",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进万客来公测上线流程，验证流量投放”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“核心功能模块的实际运行效果”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "本章要求出现的关键词「云帆科技」未在正文中体现，其余硬性一致性要求（主角名、城市时代、剧情推进、未结线索照应）均符合要求，无明显AI文风、无内容重复、剧情逻辑通顺，推进明确",
+            "severity": "mid"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。",
+          "在正文合适位置补充关键词「云帆科技」，明确项目所属主体即可"
+        ],
+        "pass": false,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 90,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "本章要求出现的关键词「云帆科技」未在正文中体现，其余硬性一致性要求（主角名、城市时代、剧情推进、未结线索照应）均符合要求，无明显AI文风、无内容重复、剧情逻辑通顺，推进明确",
+                "severity": "mid"
+              }
+            ],
+            "must_fix": [
+              "在正文合适位置补充关键词「云帆科技」，明确项目所属主体即可"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 73,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 明天公测",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：云帆科技",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进万客来公测上线流程，验证流量投放”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“核心功能模块的实际运行效果”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": false
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "",
+  "generated_at_utc": "2026-04-07T09:02:05.849091+00:00",
+  "human_intervention_required": true
+}
+[STOP] quality_gate_failed at chapter=14

@@ -1,0 +1,10 @@
+{
+  "book_id": "mvp_demo",
+  "title": "暂定名_测试",
+  "created_at_utc": "2026-04-03T07:46:19.732255+00:00",
+  "model_defaults": {
+    "planning": "doubao-seed-2.0-lite-260215",
+    "writing": "doubao-seed-2.0-lite-260215",
+    "review": "doubao-seed-2.0-lite-260215"
+  }
+}

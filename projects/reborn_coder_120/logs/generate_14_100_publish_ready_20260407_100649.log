@@ -1,0 +1,886 @@
+[START] 2026-04-07 10:06:49
+[RUN] chapter=14 title=公测验收
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 14,
+  "chapter_title": "公测验收",
+  "passed": true,
+  "review_score": 91,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 91,
+        "issues": [
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进万客来公测上线流程，验证流量投放”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“核心功能模块的实际运行效果”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 98,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 84,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进万客来公测上线流程，验证流量投放”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“核心功能模块的实际运行效果”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0014_公测验收.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:12:01.411660+00:00"
+}
+[DONE] chapter=14
+[RUN] chapter=15 title=渠道对赌
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 15,
+  "chapter_title": "渠道对赌",
+  "passed": true,
+  "review_score": 84,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 84,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 域名解析",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“取出原工位天花板隔层中的实证U盘，核实张广涛倒卖用户数据的线索”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“排查暗处潜藏的未知敌人，应对即将到来的暗算”",
+            "severity": "low"
+          },
+          {
+            "type": "ai_tone",
+            "detail": "中文行文语境中使用英文单词「percent」表述概率，不符合中文写作习惯，存在轻微AI输出痕迹",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。",
+          "将文中「九十二 percent」修改为符合中文表达习惯的「百分之九十二」"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 92,
+            "issues": [
+              {
+                "type": "ai_tone",
+                "detail": "中文行文语境中使用英文单词「percent」表述概率，不符合中文写作习惯，存在轻微AI输出痕迹",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "将文中「九十二 percent」修改为符合中文表达习惯的「百分之九十二」"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 域名解析",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“取出原工位天花板隔层中的实证U盘，核实张广涛倒卖用户数据的线索”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“排查暗处潜藏的未知敌人，应对即将到来的暗算”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0015_渠道对赌.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:17:38.990633+00:00"
+}
+[DONE] chapter=15
+[RUN] chapter=16 title=投放变盘
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 16,
+  "chapter_title": "投放变盘",
+  "passed": true,
+  "review_score": 88,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 88,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 域名解析",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进负二楼停车场的勒索对峙，厘清陈曦的内鬼身份”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“核实董事办插手的幕后线索，推进域名解析审核通过”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "开头先后提及U盘为「金属外壳」、「塑料壳」，表述略有歧义，未明确是U盘不同部位的材质差异",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 98,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "开头先后提及U盘为「金属外壳」、「塑料壳」，表述略有歧义，未明确是U盘不同部位的材质差异",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 79,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 域名解析",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进负二楼停车场的勒索对峙，厘清陈曦的内鬼身份”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“核实董事办插手的幕后线索，推进域名解析审核通过”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0016_投放变盘.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:24:06.538794+00:00"
+}
+[DONE] chapter=16
+[RUN] chapter=17 title=流量定局
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 17,
+  "chapter_title": "流量定局",
+  "passed": true,
+  "review_score": 89,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 89,
+        "issues": [
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“回应神秘来电抛出的疑问，推进GPT-8身世线索的调查”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“按原定计划开启万客来公测，推进渠道对赌相关进程”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 98,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 81,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“回应神秘来电抛出的疑问，推进GPT-8身世线索的调查”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“按原定计划开启万客来公测，推进渠道对赌相关进程”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0017_流量定局.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:28:04.568132+00:00"
+}
+[DONE] chapter=17
+[RUN] chapter=18 title=上线冲刺
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 18,
+  "chapter_title": "上线冲刺",
+  "passed": true,
+  "review_score": 90,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 90,
+        "issues": [
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“跟进万客来公测流量走势，确认渠道对赌结果”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“苏哲针对匿名讣告与GPT-8异常展开线索调查”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 100,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 81,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“跟进万客来公测流量走势，确认渠道对赌结果”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“苏哲针对匿名讣告与GPT-8异常展开线索调查”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0018_上线冲刺.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:31:47.777188+00:00"
+}
+[DONE] chapter=18
+[RUN] chapter=19 title=评审回合
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 19,
+  "chapter_title": "评审回合",
+  "passed": true,
+  "review_score": 85,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 原始工号",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“拆封董事办送来的牛皮纸袋，明确幕后势力的下一步动作”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“深入调查GPT-8的来源异常，验证IP追踪的结果”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 95,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 原始工号",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“拆封董事办送来的牛皮纸袋，明确幕后势力的下一步动作”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“深入调查GPT-8的来源异常，验证IP追踪的结果”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0019_评审回合.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:37:01.757275+00:00"
+}
+[DONE] chapter=19
+[RUN] chapter=20 title=复盘拔刺
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 20,
+  "chapter_title": "复盘拔刺",
+  "passed": true,
+  "review_score": 88,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 88,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 用户数据",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“推进苏哲赴负一层备件库赴约的剧情，揭开GPT-8与重生的核心谜团”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“确认陈曦翻供的真相，理清张广涛的反扑计划”",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 98,
+            "issues": [],
+            "must_fix": [],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 79,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 用户数据",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“推进苏哲赴负一层备件库赴约的剧情，揭开GPT-8与重生的核心谜团”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“确认陈曦翻供的真相，理清张广涛的反扑计划”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0020_复盘拔刺.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:41:37.143677+00:00"
+}
+[DONE] chapter=20
+[RUN] chapter=21 title=对冲交锋
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 21,
+  "chapter_title": "对冲交锋",
+  "passed": true,
+  "review_score": 85,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 85,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 张广涛的",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“苏哲应对张广涛抓现行埋伏的具体行动”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“揭开林溪出现在张广涛队伍中的真实原因”",
+            "severity": "low"
+          },
+          {
+            "type": "repetition",
+            "detail": "张广涛台词出现文字冗余重复：原文写为‘你偷偷摸摸摸来找什么隐层分区’，多重复了一个‘摸’字",
+            "severity": "low"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。",
+          "修正文字重复错误：将“偷偷摸摸摸来找”改为“偷偷摸摸来找”"
+        ],
+        "pass": true,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 95,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "张广涛台词出现文字冗余重复：原文写为‘你偷偷摸摸摸来找什么隐层分区’，多重复了一个‘摸’字",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "修正文字重复错误：将“偷偷摸摸摸来找”改为“偷偷摸摸来找”"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 76,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 张广涛的",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“苏哲应对张广涛抓现行埋伏的具体行动”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“揭开林溪出现在张广涛队伍中的真实原因”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": true
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0021_对冲交锋.md",
+  "recap_source": "llm",
+  "generated_at_utc": "2026-04-07T10:46:44.767085+00:00"
+}
+[DONE] chapter=21
+[RUN] chapter=22 title=校验暗战
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 22,
+  "chapter_title": "校验暗战",
+  "passed": false,
+  "review_score": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": false,
+      "draft_error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)",
+      "review": {},
+      "edit_ok": false,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "",
+  "generated_at_utc": "2026-04-07T10:49:45.582811+00:00",
+  "human_intervention_required": true
+}
+[STOP] quality_gate_failed_at=22

@@ -1,0 +1,101 @@
+{
+  "book_id": "reborn_coder_120",
+  "input": {
+    "book_id": "reborn_coder_120",
+    "brief": "普通程序员多次被裁员后低落，在被pua后遭遇泥头车穿越回第一家公司入职期；部门经理严格但好，老油条抢功使坏，CTO是技术大牛却会被CEO挑战出局；男主唯一外挂是可用未来LLM辅助编程；主线是成长反击、聚拢好人创业，单女主是投资人，另有前任女友对比线，情感甜蜜有波动，压抑不宜过长，反击要及时克制",
+    "target_words": 260000,
+    "tone": "职场现实+轻爽反击+甜蜜感情线，剧情紧凑",
+    "user_mode": "pro",
+    "must_keep": "每章不少于2000字；总章数100+；感情线生动",
+    "banned": "无脑打脸,长时间受虐",
+    "direction_hint": "创业后保留商业战后续扩展"
+  },
+  "plan": {
+    "book_positioning": "职场重生+技术成长+创业逆袭的长连载",
+    "core_theme": "从被动讨好到主动选择，靠能力与价值观重塑命运",
+    "core_conflict": "个体成长与组织权力博弈的持续冲突",
+    "ending_direction": "阶段性创业胜利，保留更大征程",
+    "anchors": {
+      "book": [
+        "主角能力提升必须有代价与学习过程",
+        "情感线甜而不腻，女主保持独立决策权",
+        "压抑桥段连续不超过两章，第三章必须回弹"
+      ],
+      "volume": [
+        "每卷都有一次职场或商业反杀节点",
+        "每卷至少一次感情线高光互动"
+      ],
+      "chapter": [
+        "每章必须有明确推进点",
+        "每章字数不少于2000字",
+        "避免空话式总结和重复短语堆砌"
+      ]
+    },
+    "options_for_author": [
+      {
+        "id": "A",
+        "idea": "前期更偏职场，感情慢热",
+        "pros": "现实感更强",
+        "risks": "甜度起步较慢"
+      },
+      {
+        "id": "B",
+        "idea": "前10章增加互动甜度",
+        "pros": "读者黏性高",
+        "risks": "需防止偏离主线"
+      }
+    ],
+    "volume_outline": [
+      {
+        "volume": 1,
+        "goal": "重回入职期，确认穿越与能力边界",
+        "chapter_range": "1-20"
+      },
+      {
+        "volume": 2,
+        "goal": "职场暗战升级，老油条抢功与反制",
+        "chapter_range": "21-40"
+      },
+      {
+        "volume": 3,
+        "goal": "CTO线崛起与权斗爆发，男主建立技术话语权",
+        "chapter_range": "41-70"
+      },
+      {
+        "volume": 4,
+        "goal": "联合好人离场创业，感情线进入深水区",
+        "chapter_range": "71-95"
+      },
+      {
+        "volume": 5,
+        "goal": "创业扩张与商业战，阶段性大结局",
+        "chapter_range": "96-118"
+      }
+    ],
+    "chapter_seed": [
+      {
+        "chapter": 1,
+        "goal": "泥头车后重回第一家公司入职日",
+        "cliffhanger": "发现自己可用未来LLM辅助编程"
+      },
+      {
+        "chapter": 2,
+        "goal": "初识严格经理与老油条，首次小试能力",
+        "cliffhanger": "关键任务入口被截胡"
+      },
+      {
+        "chapter": 3,
+        "goal": "用证据化方式反制抢功，拿回发言权",
+        "cliffhanger": "女主在旁观中注意到男主变化"
+      },
+      {
+        "chapter": 4,
+        "goal": "旧女友回归视野，情感对比线启动",
+        "cliffhanger": "女主以投资观察者身份接触男主"
+      }
+    ],
+    "fallback": true,
+    "error": "request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError(\"HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)\"))"
+  },
+  "generated_at_utc": "2026-04-03T08:29:31.949491+00:00"
+}

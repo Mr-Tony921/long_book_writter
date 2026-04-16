@@ -1,0 +1,43 @@
+{
+  "book_id": "mvp_demo",
+  "current_stage": "第10章后冲突升级",
+  "naming": {
+    "style": "mixed",
+    "titles": [
+      {
+        "name": "暂定纪事",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "暂定与名测",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "在名测中重生",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "暂定的边界",
+        "style": "serious",
+        "reason": "强调主题与辨识度"
+      },
+      {
+        "name": "我在名测当暂定",
+        "style": "funny",
+        "reason": "夸张表达，适合吸睛传播"
+      },
+      {
+        "name": "暂定，这剧情不对劲",
+        "style": "funny",
+        "reason": "夸张表达，适合吸睛传播"
+      }
+    ],
+    "fallback": true,
+    "error": "request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError(\"HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)\"))",
+    "generated_at_utc": "2026-04-03T07:46:48.016819+00:00"
+  },
+  "generated_at_utc": "2026-04-03T07:46:48.016829+00:00"
+}

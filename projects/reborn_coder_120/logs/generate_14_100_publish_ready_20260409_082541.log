@@ -1,0 +1,37 @@
+[START] 2026-04-09 08:25:41
+[SKIP] chapter=14 exists
+[SKIP] chapter=15 exists
+[SKIP] chapter=16 exists
+[SKIP] chapter=17 exists
+[SKIP] chapter=18 exists
+[SKIP] chapter=19 exists
+[SKIP] chapter=20 exists
+[SKIP] chapter=21 exists
+[SKIP] chapter=22 exists
+[SKIP] chapter=23 exists
+[SKIP] chapter=24 exists
+[SKIP] chapter=25 exists
+[SKIP] chapter=26 exists
+[SKIP] chapter=27 exists
+[RUN] chapter=28 title=董事博弈
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 28,
+  "chapter_title": "董事博弈",
+  "passed": false,
+  "review_score": 0,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": false,
+      "draft_error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)",
+      "review": {},
+      "edit_ok": false,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "",
+  "generated_at_utc": "2026-04-09T08:28:42.895418+00:00",
+  "human_intervention_required": true
+}
+[STOP] quality_gate_failed_at=28

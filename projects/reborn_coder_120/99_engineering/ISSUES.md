@@ -1,0 +1,46 @@
+# Issues
+
+- [2026-04-03T08:29:31.954731+00:00] [warn] 策划模型降级: plan fallback triggered, error=request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError("HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)"))
+- [2026-04-03T08:29:36.541545+00:00] [warn] 起名模型降级: title fallback triggered, error=request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError("HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)"))
+- [2026-04-03T08:29:47.143222+00:00] [warn] 章节1第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:29:56.706650+00:00] [warn] 章节2第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:30:30.445893+00:00] [warn] 章节3第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:37:13.180373+00:00] [warn] 章节1第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:37:13.183387+00:00] [warn] 章节3第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:37:13.184115+00:00] [warn] 章节1第2次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:37:13.186097+00:00] [warn] 章节3第2次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:37:20Z] [warn] 遇到并发写入风险：并行重跑多章时 index.json 发生竞争写，后续改为章节串行写入。
+- [2026-04-03T08:40:46.278989+00:00] [warn] 章节1第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:40:56.271273+00:00] [warn] 章节2第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:41:03.415121+00:00] [warn] 章节3第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:41:52.480646+00:00] [warn] 章节1第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:41:52.561347+00:00] [warn] 章节2第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T08:41:52.578477+00:00] [warn] 章节3第1次检查进入降级模式: LLM review unavailable, rule-based review used
+- [2026-04-03T10:00:52.899929+00:00] [warn] 章节流水线失败 chapter=1: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=20)
+- [2026-04-03T10:02:39.144476+00:00] [warn] 章节流水线失败 chapter=1: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=60)
+- [2026-04-03T10:06:21.846964+00:00] [warn] 章节流水线失败 chapter=1: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=60)
+- [2026-04-03T10:19:21.386780+00:00] [warn] 章节流水线失败 chapter=1: reason=writer_failed_or_quality_gate_failed
+- [2026-04-03T11:03:11.068080+00:00] [warn] 章节流水线失败 chapter=2: reason=stream_failed=(stream request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NewConnectionError("HTTPConnection(host='172.19.57.3', port=80): Failed to establish a new connection: [Errno 1] Operation not permitted"))); fallback_non_stream_failed=(request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NewConnectionError("HTTPConnection(host='172.19.57.3', port=80): Failed to establish a new connection: [Errno 1] Operation not permitted")))
+- [2026-04-03T11:14:42.814373+00:00] [warn] 章节流水线失败 chapter=2: reason=writer_failed_or_quality_gate_failed
+- [2026-04-03T11:23:23.674522+00:00] [warn] 章节流水线失败 chapter=2: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NewConnectionError("HTTPConnection(host='172.19.57.3', port=80): Failed to establish a new connection: [Errno 1] Operation not permitted"))
+- [2026-04-03T11:39:17.043880+00:00] [warn] 章节流水线失败 chapter=2: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-04-03T11:59:35.587562+00:00] [warn] 章节流水线失败 chapter=3: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-04-03T12:06:32.311894+00:00] [warn] 章节流水线失败 chapter=4: reason=writer_failed_or_quality_gate_failed
+- [2026-04-03T12:12:08.723549+00:00] [warn] 章节流水线失败 chapter=5: reason=writer_failed_or_quality_gate_failed
+- [2026-04-03T12:16:33.909252+00:00] [warn] 章节流水线失败 chapter=3: reason=writer_failed_or_quality_gate_failed
+- [2026-04-03T12:24:51.985580+00:00] [warn] 章节流水线失败 chapter=3: reason=writer_failed_or_quality_gate_failed
+- [2026-04-07T02:30:30.334907+00:00] [warn] 章节流水线失败 chapter=4: reason=writer_failed_or_quality_gate_failed
+- [2026-04-07T02:36:22.253172+00:00] [warn] 章节流水线失败 chapter=4: reason=writer_failed_or_quality_gate_failed
+- [2026-04-07T02:40:53.038231+00:00] [warn] 章节流水线失败 chapter=4: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-04-07T02:43:24.538850+00:00] [warn] 章节流水线失败 chapter=4: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-04-07T03:03:07.793047+00:00] [warn] 章节流水线失败 chapter=7: reason=writer_failed_or_quality_gate_failed
+- [2026-04-07T03:19:53.944964+00:00] [warn] 章节流水线失败 chapter=8: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
+- [2026-04-07T09:02:05.849106+00:00] [warn] 章节流水线失败 chapter=14: reason=writer_failed_or_quality_gate_failed
+- [2026-04-07T10:49:45.582830+00:00] [warn] 章节流水线失败 chapter=22: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
+- [2026-04-07T11:41:39.109981+00:00] [warn] 章节流水线失败 chapter=22: reason=writer_failed_or_quality_gate_failed
+- [2026-04-07T11:42:02.885732+00:00] [warn] 章节流水线失败 chapter=22: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NewConnectionError("HTTPConnection(host='172.19.57.3', port=80): Failed to establish a new connection: [Errno 1] Operation not permitted"))
+- [2026-04-07T12:03:48.535964+00:00] [warn] 章节流水线失败 chapter=24: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
+- [2026-04-09T03:08:01.058291+00:00] [warn] 章节流水线失败 chapter=24: reason=writer_failed_or_quality_gate_failed
+- [2026-04-09T03:34:06.126550+00:00] [warn] 章节流水线失败 chapter=28: reason=writer_failed_or_quality_gate_failed
+- [2026-04-09T08:28:42.895436+00:00] [warn] 章节流水线失败 chapter=28: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
+- [2026-04-09T08:40:14.448865+00:00] [warn] 章节流水线失败 chapter=28: reason=writer_failed_or_quality_gate_failed

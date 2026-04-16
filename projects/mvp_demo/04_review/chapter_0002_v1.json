@@ -1,0 +1,62 @@
+{
+  "score": 75,
+  "issues": [
+    {
+      "type": "consistency",
+      "detail": "章节锚点未明显体现: 避免重复段落和口号式总结",
+      "severity": "low"
+    },
+    {
+      "type": "logic",
+      "detail": "章节过短，可能导致推进不足",
+      "severity": "mid"
+    },
+    {
+      "type": "system",
+      "detail": "request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError(\"HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)\"))",
+      "severity": "mid"
+    }
+  ],
+  "must_fix": [
+    "补足场景冲突与人物反应，避免梗概化。"
+  ],
+  "pass": true,
+  "degraded_mode": true,
+  "sources": {
+    "llm": {
+      "source": "llm",
+      "available": false,
+      "score": 0,
+      "issues": [
+        {
+          "type": "system",
+          "detail": "request failed: HTTPConnectionPool(host='api.schedule.mtc.sensetime.com', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NameResolutionError(\"HTTPConnection(host='api.schedule.mtc.sensetime.com', port=80): Failed to resolve 'api.schedule.mtc.sensetime.com' ([Errno -2] Name or service not known)\"))",
+          "severity": "mid"
+        }
+      ],
+      "must_fix": [],
+      "pass": false
+    },
+    "rules": {
+      "source": "rules",
+      "available": true,
+      "score": 75,
+      "issues": [
+        {
+          "type": "consistency",
+          "detail": "章节锚点未明显体现: 避免重复段落和口号式总结",
+          "severity": "low"
+        },
+        {
+          "type": "logic",
+          "detail": "章节过短，可能导致推进不足",
+          "severity": "mid"
+        }
+      ],
+      "must_fix": [
+        "补足场景冲突与人物反应，避免梗概化。"
+      ],
+      "pass": true
+    }
+  }
+}

@@ -1,0 +1,145 @@
+[START] 2026-04-07 11:37:43
+[SKIP] chapter=14 exists
+[SKIP] chapter=15 exists
+[SKIP] chapter=16 exists
+[SKIP] chapter=17 exists
+[SKIP] chapter=18 exists
+[SKIP] chapter=19 exists
+[SKIP] chapter=20 exists
+[SKIP] chapter=21 exists
+[RUN] chapter=22 title=校验暗战
+{
+  "book_id": "reborn_coder_120",
+  "chapter_no": 22,
+  "chapter_title": "校验暗战",
+  "passed": false,
+  "review_score": 81,
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft_ok": true,
+      "draft_error": "",
+      "review": {
+        "score": 81,
+        "issues": [
+          {
+            "type": "repetition",
+            "detail": "重复短语偏多: 基因序列",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：云帆科技",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "关键连续性信息未出现：LLM辅助",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“揭开GPT-8核心权限绑定董事局基因锁的真相”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "前情衔接不足：未体现策划要求“破解隐层核心文件夹，曝光云帆高层全部黑幕”",
+            "severity": "low"
+          },
+          {
+            "type": "consistency",
+            "detail": "正文中途突然出现未做任何前置铺垫的新角色「林溪」，前文仅出场女性角色陈曦，人物线索不一致，疑似笔误或遗漏出场铺垫",
+            "severity": "mid"
+          }
+        ],
+        "must_fix": [
+          "降低高频短语复用，改写相邻段落句式。",
+          "补全林溪的前置出场铺垫，若为姓名笔误则修正对应人物名称，消除无铺垫突然出现新角色的问题"
+        ],
+        "pass": false,
+        "degraded_mode": false,
+        "sources": {
+          "llm": {
+            "score": 90,
+            "issues": [
+              {
+                "type": "consistency",
+                "detail": "正文中途突然出现未做任何前置铺垫的新角色「林溪」，前文仅出场女性角色陈曦，人物线索不一致，疑似笔误或遗漏出场铺垫",
+                "severity": "mid"
+              }
+            ],
+            "must_fix": [
+              "补全林溪的前置出场铺垫，若为姓名笔误则修正对应人物名称，消除无铺垫突然出现新角色的问题"
+            ],
+            "pass": true,
+            "source": "llm",
+            "available": true
+          },
+          "rules": {
+            "source": "rules",
+            "available": true,
+            "score": 73,
+            "issues": [
+              {
+                "type": "repetition",
+                "detail": "重复短语偏多: 基因序列",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：云帆科技",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "关键连续性信息未出现：LLM辅助",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“揭开GPT-8核心权限绑定董事局基因锁的真相”",
+                "severity": "low"
+              },
+              {
+                "type": "consistency",
+                "detail": "前情衔接不足：未体现策划要求“破解隐层核心文件夹，曝光云帆高层全部黑幕”",
+                "severity": "low"
+              }
+            ],
+            "must_fix": [
+              "降低高频短语复用，改写相邻段落句式。"
+            ],
+            "pass": false
+          }
+        }
+      },
+      "edit_ok": true,
+      "edit_error": ""
+    }
+  ],
+  "published_path": "",
+  "generated_at_utc": "2026-04-07T11:41:39.109965+00:00",
+  "human_intervention_required": true
+}
+[STOP] quality_gate_failed_at=22
