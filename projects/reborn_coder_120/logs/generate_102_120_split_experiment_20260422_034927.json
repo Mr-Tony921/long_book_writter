@@ -1,0 +1,51 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    102,
+    120
+  ],
+  "failed": true,
+  "failed_reason": "chapter_102_part1_failed",
+  "items": [
+    {
+      "chapter_no": 102,
+      "status": "failed",
+      "stage": "part1",
+      "logs": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 3,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 4,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 5,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 6,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        }
+      ]
+    }
+  ],
+  "transition_report_file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/transition_report_102_120_split_20260422_034927.json",
+  "generated_at_utc": "2026-04-22T04:01:28.354290+00:00",
+  "env_timeout": "120"
+}

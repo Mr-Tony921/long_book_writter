@@ -1,0 +1,254 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    151,
+    180
+  ],
+  "ok": true,
+  "stop_reason": "completed",
+  "stop_chapter_no": 0,
+  "items": [
+    {
+      "chapter_no": 151,
+      "status": "published",
+      "ext_try": 1,
+      "title": "藏了五年的内鬼落网了",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0151_藏了五年的内鬼落网了.md"
+    },
+    {
+      "chapter_no": 152,
+      "status": "published",
+      "ext_try": 1,
+      "title": "硬盘到手父亲好转",
+      "review_score": 75,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0152_硬盘到手父亲好转.md"
+    },
+    {
+      "chapter_no": 153,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账清了爸渐好",
+      "review_score": 76,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0153_旧账清了爸渐好.md"
+    },
+    {
+      "chapter_no": 154,
+      "status": "published",
+      "ext_try": 1,
+      "title": "该算最后一笔账了",
+      "review_score": 86,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0154_该算最后一笔账了.md"
+    },
+    {
+      "chapter_no": 155,
+      "status": "published",
+      "ext_try": 1,
+      "title": "内鬼招供，收尾渐近",
+      "review_score": 82,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0155_内鬼招供，收尾渐近.md"
+    },
+    {
+      "chapter_no": 156,
+      "status": "published",
+      "ext_try": 1,
+      "title": "误会清了天要晴",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0156_误会清了天要晴.md"
+    },
+    {
+      "chapter_no": 157,
+      "status": "published",
+      "ext_try": 1,
+      "title": "清完内鬼算总账",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0157_清完内鬼算总账.md"
+    },
+    {
+      "chapter_no": 158,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年黑锅终于清了",
+      "review_score": 76,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0158_八年黑锅终于清了.md"
+    },
+    {
+      "chapter_no": 159,
+      "status": "published",
+      "ext_try": 1,
+      "title": "沉冤得雪终局将启",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0159_沉冤得雪终局将启.md"
+    },
+    {
+      "chapter_no": 160,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧案落定，蓝星上门",
+      "review_score": 80,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0160_旧案落定，蓝星上门.md"
+    },
+    {
+      "chapter_no": 161,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧案落定该算总账",
+      "review_score": 84,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0161_旧案落定该算总账.md"
+    },
+    {
+      "chapter_no": 162,
+      "status": "published",
+      "ext_try": 1,
+      "title": "黑锅已摘，证据齐全",
+      "review_score": 77,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0162_黑锅已摘，证据齐全.md"
+    },
+    {
+      "chapter_no": 163,
+      "status": "published",
+      "ext_try": 1,
+      "title": "爸出院了该清算了",
+      "review_score": 80,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0163_爸出院了该清算了.md"
+    },
+    {
+      "chapter_no": 164,
+      "status": "published",
+      "ext_try": 1,
+      "title": "翻出藏了八年的黑协议",
+      "review_score": 82,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0164_翻出藏了八年的黑协议.md"
+    },
+    {
+      "chapter_no": 165,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账今天清算",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0165_八年旧账今天清算.md"
+    },
+    {
+      "chapter_no": 166,
+      "status": "published",
+      "ext_try": 1,
+      "title": "实锤在手，跟他摊牌",
+      "review_score": 75,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0166_实锤在手，跟他摊牌.md"
+    },
+    {
+      "chapter_no": 167,
+      "status": "published",
+      "ext_try": 1,
+      "title": "这八年账，该清了",
+      "review_score": 76,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0167_这八年账，该清了.md"
+    },
+    {
+      "chapter_no": 168,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账该清了",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0168_八年旧账该清了.md"
+    },
+    {
+      "chapter_no": 169,
+      "status": "published",
+      "ext_try": 1,
+      "title": "就要这一句道歉",
+      "review_score": 76,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0169_就要这一句道歉.md"
+    },
+    {
+      "chapter_no": 170,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账总算要清了",
+      "review_score": 81,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0170_八年旧账总算要清了.md"
+    },
+    {
+      "chapter_no": 171,
+      "status": "published",
+      "ext_try": 1,
+      "title": "该拿的都拿回来了",
+      "review_score": 81,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0171_该拿的都拿回来了.md"
+    },
+    {
+      "chapter_no": 172,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账总算清了",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0172_八年旧账总算清了.md"
+    },
+    {
+      "chapter_no": 173,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账清了开新局",
+      "review_score": 86,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0173_旧账清了开新局.md"
+    },
+    {
+      "chapter_no": 174,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账已清再开新局",
+      "review_score": 79,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0174_旧账已清再开新局.md"
+    },
+    {
+      "chapter_no": 175,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账清了大半",
+      "review_score": 81,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0175_八年旧账清了大半.md"
+    },
+    {
+      "chapter_no": 176,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账结清，再启新程",
+      "review_score": 84,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0176_旧账结清，再启新程.md"
+    },
+    {
+      "chapter_no": 177,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账总算清了（二）",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0177_八年旧账总算清了（二）.md"
+    },
+    {
+      "chapter_no": 178,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账快清完了",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0178_八年旧账快清完了.md"
+    },
+    {
+      "chapter_no": 179,
+      "status": "published",
+      "ext_try": 1,
+      "title": "藏了八年的铁证",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0179_藏了八年的铁证.md"
+    },
+    {
+      "chapter_no": 180,
+      "status": "published",
+      "ext_try": 1,
+      "title": "今天该算旧账了",
+      "review_score": 77,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0180_今天该算旧账了.md"
+    }
+  ],
+  "logs_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/run_range_0151_0180_20260506_115033.json",
+  "generated_at_utc": "2026-05-06T14:37:37.770992+00:00"
+}

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# DEPRECATED: 已被 `python -m longbookwritter.cli run-range` 取代，新章节请用 scripts/run_range.sh。
+# 本脚本保留是为了过渡期复跑既有日志，业务逻辑不再维护。
 set -euo pipefail
 
 ROOT="/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao"

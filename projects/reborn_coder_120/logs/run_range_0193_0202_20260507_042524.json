@@ -1,0 +1,432 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    193,
+    202
+  ],
+  "ok": false,
+  "stop_reason": "plot_block",
+  "stop_chapter_no": 196,
+  "items": [
+    {
+      "chapter_no": 193,
+      "status": "published",
+      "ext_try": 1,
+      "title": "江上风起云帆归",
+      "review_score": 82,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0193_江上风起云帆归.md"
+    },
+    {
+      "chapter_no": 194,
+      "status": "published",
+      "ext_try": 1,
+      "title": "桐花里云帆再出发",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0194_桐花里云帆再出发.md"
+    },
+    {
+      "chapter_no": 195,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆重启，开春再见",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0195_云帆重启，开春再见.md"
+    },
+    {
+      "chapter_no": 196,
+      "status": "stopped",
+      "ext_try": 1,
+      "stop_reason": "plot_block",
+      "review_score": 74,
+      "last_payload": {
+        "book_id": "reborn_coder_120",
+        "chapter_no": 196,
+        "chapter_title": "",
+        "passed": false,
+        "review_score": 74,
+        "attempts": [
+          {
+            "attempt": 1,
+            "draft_ok": true,
+            "draft_error": "",
+            "review": {
+              "score": 69,
+              "issues": [
+                {
+                  "type": "consistency",
+                  "detail": "章节目标未被明显覆盖",
+                  "severity": "mid"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "关键背景缺失：城市“临江市”未出现",
+                  "severity": "mid"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "前情衔接不足：未体现策划要求“明确苏哲与林溪的关系走向”",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "前情衔接不足：未体现策划要求“跟进新云帆首款模型产品的研发与落地进程”",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "场景推进偏单一：章节疑似在同一地点反复打圈，缺少阶段性地图推进",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "本章目标明确要求前段完成冲击最高层boss决战、苏振江案跨境收尾内容，正文开篇直接进入法院领取判决环节，完全缺失了决战与跨境收尾的核心剧情，不符合章节目标要求",
+                  "severity": "high"
+                }
+              ],
+              "must_fix": [
+                "补齐本章目标事件，避免偏离主任务。",
+                "补充场景锚定信息，明确本章发生城市为“临江市”。",
+                "优化阶段推进：可不强制换地图，但应引入新行动目标/新场景节点，避免原地拉扯。",
+                "补全冲击最高层boss决战、苏振江案跨境收尾的相关剧情，满足本章前段的目标要求"
+              ],
+              "pass": false,
+              "degraded_mode": false,
+              "sources": {
+                "llm": {
+                  "score": 80,
+                  "issues": [
+                    {
+                      "type": "consistency",
+                      "detail": "本章目标明确要求前段完成冲击最高层boss决战、苏振江案跨境收尾内容，正文开篇直接进入法院领取判决环节，完全缺失了决战与跨境收尾的核心剧情，不符合章节目标要求",
+                      "severity": "high"
+                    }
+                  ],
+                  "must_fix": [
+                    "补全冲击最高层boss决战、苏振江案跨境收尾的相关剧情，满足本章前段的目标要求"
+                  ],
+                  "pass": false,
+                  "source": "llm",
+                  "available": true
+                },
+                "rules": {
+                  "source": "rules",
+                  "available": true,
+                  "score": 59,
+                  "issues": [
+                    {
+                      "type": "consistency",
+                      "detail": "章节目标未被明显覆盖",
+                      "severity": "mid"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "关键背景缺失：城市“临江市”未出现",
+                      "severity": "mid"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "前情衔接不足：未体现策划要求“明确苏哲与林溪的关系走向”",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "前情衔接不足：未体现策划要求“跟进新云帆首款模型产品的研发与落地进程”",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "场景推进偏单一：章节疑似在同一地点反复打圈，缺少阶段性地图推进",
+                      "severity": "low"
+                    }
+                  ],
+                  "must_fix": [
+                    "补齐本章目标事件，避免偏离主任务。",
+                    "补充场景锚定信息，明确本章发生城市为“临江市”。",
+                    "优化阶段推进：可不强制换地图，但应引入新行动目标/新场景节点，避免原地拉扯。"
+                  ],
+                  "pass": false
+                }
+              }
+            },
+            "edit_ok": true,
+            "edit_error": ""
+          },
+          {
+            "attempt": 2,
+            "draft_ok": true,
+            "draft_error": "",
+            "review": {
+              "score": 71,
+              "issues": [
+                {
+                  "type": "consistency",
+                  "detail": "章节目标未被明显覆盖",
+                  "severity": "mid"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                  "severity": "low"
+                },
+                {
+                  "type": "length",
+                  "detail": "章节字数不足：1941 < 2200",
+                  "severity": "high"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "前情衔接不足：未体现策划要求“明确苏哲与林溪的关系走向”",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "前情衔接不足：未体现策划要求“跟进新云帆首款模型产品的研发与落地进程”",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "文中出现疑似输入错别字：‘王堔主动退赃，检举揭发霉价交易线索’里的‘霉价’为错误表述，属于笔误",
+                  "severity": "low"
+                }
+              ],
+              "must_fix": [
+                "补齐本章目标事件，避免偏离主任务。",
+                "将章节扩写到不少于2200字，补足场景推进和人物互动。",
+                "修正‘霉价交易’的错别字错误"
+              ],
+              "pass": false,
+              "degraded_mode": false,
+              "sources": {
+                "llm": {
+                  "score": 99,
+                  "issues": [
+                    {
+                      "type": "consistency",
+                      "detail": "文中出现疑似输入错别字：‘王堔主动退赃，检举揭发霉价交易线索’里的‘霉价’为错误表述，属于笔误",
+                      "severity": "low"
+                    }
+                  ],
+                  "must_fix": [
+                    "修正‘霉价交易’的错别字错误"
+                  ],
+                  "pass": true,
+                  "source": "llm",
+                  "available": true
+                },
+                "rules": {
+                  "source": "rules",
+                  "available": true,
+                  "score": 44,
+                  "issues": [
+                    {
+                      "type": "consistency",
+                      "detail": "章节目标未被明显覆盖",
+                      "severity": "mid"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "length",
+                      "detail": "章节字数不足：1941 < 2200",
+                      "severity": "high"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "前情衔接不足：未体现策划要求“明确苏哲与林溪的关系走向”",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "前情衔接不足：未体现策划要求“跟进新云帆首款模型产品的研发与落地进程”",
+                      "severity": "low"
+                    }
+                  ],
+                  "must_fix": [
+                    "补齐本章目标事件，避免偏离主任务。",
+                    "将章节扩写到不少于2200字，补足场景推进和人物互动。"
+                  ],
+                  "pass": false
+                }
+              }
+            },
+            "edit_ok": true,
+            "edit_error": ""
+          },
+          {
+            "attempt": 3,
+            "draft_ok": true,
+            "draft_error": "",
+            "review": {
+              "score": 74,
+              "issues": [
+                {
+                  "type": "repetition",
+                  "detail": "重复短语偏多: 用LLM, LLM辅, LM辅助",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "章节目标未被明显覆盖",
+                  "severity": "mid"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "关键背景缺失：城市“临江市”未出现",
+                  "severity": "mid"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "前情衔接不足：未体现策划要求“明确苏哲与林溪的关系走向”",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "前情衔接不足：未体现策划要求“跟进新云帆首款模型产品的研发与落地进程”",
+                  "severity": "low"
+                },
+                {
+                  "type": "consistency",
+                  "detail": "场景推进偏单一：章节疑似在同一地点反复打圈，缺少阶段性地图推进",
+                  "severity": "low"
+                },
+                {
+                  "type": "repetition",
+                  "detail": "开头已提及林溪刷完陈曦的最新动态并评价其晒黑，后文行走途中再次设置林溪刷陈曦动态的情节，内容同属陈曦的公益动态，存在小幅重复",
+                  "severity": "low"
+                }
+              ],
+              "must_fix": [
+                "降低高频短语复用，改写相邻段落句式。",
+                "补齐本章目标事件，避免偏离主任务。",
+                "补充场景锚定信息，明确本章发生城市为“临江市”。",
+                "优化阶段推进：可不强制换地图，但应引入新行动目标/新场景节点，避免原地拉扯。"
+              ],
+              "pass": false,
+              "degraded_mode": false,
+              "sources": {
+                "llm": {
+                  "score": 95,
+                  "issues": [
+                    {
+                      "type": "repetition",
+                      "detail": "开头已提及林溪刷完陈曦的最新动态并评价其晒黑，后文行走途中再次设置林溪刷陈曦动态的情节，内容同属陈曦的公益动态，存在小幅重复",
+                      "severity": "low"
+                    }
+                  ],
+                  "must_fix": [],
+                  "pass": true,
+                  "source": "llm",
+                  "available": true
+                },
+                "rules": {
+                  "source": "rules",
+                  "available": true,
+                  "score": 54,
+                  "issues": [
+                    {
+                      "type": "repetition",
+                      "detail": "重复短语偏多: 用LLM, LLM辅, LM辅助",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "章节目标未被明显覆盖",
+                      "severity": "mid"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "关键背景缺失：城市“临江市”未出现",
+                      "severity": "mid"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "前情衔接不足：未体现策划要求“明确苏哲与林溪的关系走向”",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "前情衔接不足：未体现策划要求“跟进新云帆首款模型产品的研发与落地进程”",
+                      "severity": "low"
+                    },
+                    {
+                      "type": "consistency",
+                      "detail": "场景推进偏单一：章节疑似在同一地点反复打圈，缺少阶段性地图推进",
+                      "severity": "low"
+                    }
+                  ],
+                  "must_fix": [
+                    "降低高频短语复用，改写相邻段落句式。",
+                    "补齐本章目标事件，避免偏离主任务。",
+                    "补充场景锚定信息，明确本章发生城市为“临江市”。",
+                    "优化阶段推进：可不强制换地图，但应引入新行动目标/新场景节点，避免原地拉扯。"
+                  ],
+                  "pass": false
+                }
+              }
+            },
+            "edit_ok": true,
+            "edit_error": ""
+          }
+        ],
+        "published_path": "",
+        "generated_at_utc": "2026-05-07T05:06:54.487002+00:00",
+        "human_intervention_required": true
+      }
+    }
+  ],
+  "logs_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/run_range_0193_0202_20260507_042524.json",
+  "generated_at_utc": "2026-05-07T05:06:54.492885+00:00"
+}

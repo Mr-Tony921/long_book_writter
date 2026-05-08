@@ -230,6 +230,29 @@ class ReviewerAgent:
                 )
                 score -= 3
 
+        # Chapter-level map shift is not mandatory, but long runs in one scene should be flagged.
+        if chapter_no >= 30 and self._is_stuck_same_scene(chapter_text):
+            issues.append(
+                {
+                    "type": "consistency",
+                    "detail": "场景推进偏单一：章节疑似在同一地点反复打圈，缺少阶段性地图推进",
+                    "severity": "low",
+                }
+            )
+            must_fix.append("优化阶段推进：可不强制换地图，但应引入新行动目标/新场景节点，避免原地拉扯。")
+            score -= 5
+
+        if chapter_no >= 30 and self._has_hard_time_jump(chapter_text):
+            issues.append(
+                {
+                    "type": "consistency",
+                    "detail": "时间跨度偏大：章节开头或正文出现较大跳时，影响长篇连续阅读感",
+                    "severity": "mid",
+                }
+            )
+            must_fix.append("保持章节间连续时间线，非必要不要使用“数月后/一年后”等大幅跳时。")
+            score -= 10
+
         passed = score >= 75 and not any(item["severity"] == "high" for item in issues)
         return {
             "source": "rules",
@@ -256,7 +279,13 @@ class ReviewerAgent:
             final_score = int((llm_score + local_score) / 2)
         else:
             final_score = local_score
-        final_pass = local_review.get("pass", False) and (llm_review.get("pass", True) if llm_available else True)
+        local_high = any(str(item.get("severity", "")).lower() == "high" for item in local_review.get("issues", []))
+        llm_high = any(str(item.get("severity", "")).lower() == "high" for item in llm_review.get("issues", []))
+        if llm_available:
+            # Prefer semantic LLM judgement for publish gate, while keeping high-risk hard stops.
+            final_pass = bool(llm_review.get("pass", False)) and not local_high and not llm_high and final_score >= 75
+        else:
+            final_pass = bool(local_review.get("pass", False)) and not local_high and final_score >= 75
 
         return {
             "score": final_score,
@@ -336,6 +365,29 @@ class ReviewerAgent:
                     parts = [p.strip() for p in re.split(r"[；;、]", payload) if p.strip() and p.strip() != "无"]
                     values.extend(parts)
         return values[:5]
+
+    def _is_stuck_same_scene(self, text: str) -> bool:
+        if not text:
+            return True
+        map_tokens = [
+            "办公室", "会议室", "机房", "医院", "码头", "仓库", "法庭", "车库", "写字楼", "总部", "园区", "灯塔",
+        ]
+        hit = {tok for tok in map_tokens if tok in text}
+        action_tokens = [
+            "取证", "追查", "对质", "反制", "救援", "突围", "交付", "谈判", "抓捕", "撤离",
+        ]
+        action_hit = sum(1 for tok in action_tokens if tok in text)
+        # if scene token too few and action variety too少，判定可能打圈
+        return len(hit) <= 1 and action_hit <= 1
+
+    def _has_hard_time_jump(self, text: str) -> bool:
+        if not text:
+            return False
+        jump_terms = [
+            "几个月后", "数月后", "半年后", "一年后", "两年后", "三年后",
+            "很久以后", "不久后又过了", "转眼一年",
+        ]
+        return any(term in text for term in jump_terms)
 
     def _goal_covered(self, chapter_goal: str, chapter_text: str) -> bool:
         parts = re.split(r"[，,。；;、\s]+", chapter_goal)

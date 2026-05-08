@@ -1,0 +1,70 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    196,
+    202
+  ],
+  "ok": true,
+  "stop_reason": "completed",
+  "stop_chapter_no": 0,
+  "items": [
+    {
+      "chapter_no": 196,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆起，春正好",
+      "review_score": 88,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0196_云帆起，春正好.md"
+    },
+    {
+      "chapter_no": 197,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账清了，春风正好",
+      "review_score": 88,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0197_旧账清了，春风正好.md"
+    },
+    {
+      "chapter_no": 198,
+      "status": "published",
+      "ext_try": 1,
+      "title": "清了旧账，再赴春风",
+      "review_score": 86,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0198_清了旧账，再赴春风.md"
+    },
+    {
+      "chapter_no": 199,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧案落定新帆起",
+      "review_score": 88,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0199_旧案落定新帆起.md"
+    },
+    {
+      "chapter_no": 200,
+      "status": "published",
+      "ext_try": 1,
+      "title": "江风留话，来日方长",
+      "review_score": 86,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0200_江风留话，来日方长.md"
+    },
+    {
+      "chapter_no": 201,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账全清日子还长",
+      "review_score": 82,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0201_旧账全清日子还长.md"
+    },
+    {
+      "chapter_no": 202,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧案落定，来日方长",
+      "review_score": 79,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0202_旧案落定，来日方长.md"
+    }
+  ],
+  "logs_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/run_range_0196_0202_20260507_053443.json",
+  "generated_at_utc": "2026-05-07T06:15:10.060336+00:00"
+}

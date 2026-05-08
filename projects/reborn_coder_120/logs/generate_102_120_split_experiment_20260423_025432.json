@@ -1,0 +1,51 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    102,
+    120
+  ],
+  "failed": true,
+  "failed_reason": "chapter_102_part1_failed",
+  "items": [
+    {
+      "chapter_no": 102,
+      "status": "failed",
+      "stage": "part1",
+      "logs": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "error": "api business error: {'code': 10001, 'msg': '业务错误:Error 1205 (HY000): Lock wait timeout exceeded; try restarting transaction'}"
+        },
+        {
+          "attempt": 3,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)"
+        },
+        {
+          "attempt": 4,
+          "ok": false,
+          "error": "api business error: {'code': 10001, 'msg': '业务错误:Error 1205 (HY000): Lock wait timeout exceeded; try restarting transaction'}"
+        },
+        {
+          "attempt": 5,
+          "ok": false,
+          "error": "api business error: {'code': 10001, 'msg': '业务错误:Error 1205 (HY000): Lock wait timeout exceeded; try restarting transaction'}"
+        },
+        {
+          "attempt": 6,
+          "ok": false,
+          "error": "api business error: {'code': 10001, 'msg': '业务错误:Error 1205 (HY000): Lock wait timeout exceeded; try restarting transaction'}"
+        }
+      ]
+    }
+  ],
+  "transition_report_file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/transition_report_102_120_split_20260423_025432.json",
+  "generated_at_utc": "2026-04-23T03:04:34.151147+00:00",
+  "env_timeout": "120"
+}

@@ -208,6 +208,7 @@ class LongBookWritterOrchestrator:
         review = {}
         passed = False
         draft_text = ""
+        retry_guidance = ""
 
         for attempt in range(1, max_retries + 2):
             draft_res = self.writer.draft_chapter(
@@ -220,6 +221,7 @@ class LongBookWritterOrchestrator:
                 scene_plan=scene_plan,
                 chapter_no=chapter_no,
                 chapter_title=chapter_title,
+                retry_guidance=retry_guidance,
             )
             draft_text = draft_res.get("draft", "")
             if not draft_res.get("ok", False) or not draft_text.strip():
@@ -233,6 +235,13 @@ class LongBookWritterOrchestrator:
                         "edit_error": "",
                     }
                 )
+                retry_guidance = self._build_retry_guidance(
+                    review={},
+                    chapter_goal=chapter_goal,
+                    chapter_no=chapter_no,
+                    previous_guidance=retry_guidance,
+                    fallback_reason=f"写作接口失败：{draft_res.get('error', 'writer_failed')}",
+                )
                 continue
             review = self.reviewer.review_chapter(
                 chapter_text=draft_text,
@@ -245,11 +254,16 @@ class LongBookWritterOrchestrator:
                 planner_brief=planner_brief,
                 min_words=min_words,
             )
-            edit_res = self.editor.polish(
-                chapter_text=draft_text,
-                must_fix=review.get("must_fix", []),
-                style_constraints=style_constraints,
-            )
+            must_fix_items = review.get("must_fix", []) or []
+            review_passed = bool(review.get("pass", False))
+            if review_passed or not must_fix_items:
+                edit_res = {"ok": True, "error": "skipped_editor", "text": draft_text}
+            else:
+                edit_res = self.editor.polish(
+                    chapter_text=draft_text,
+                    must_fix=must_fix_items,
+                    style_constraints=style_constraints,
+                )
             final_text = edit_res.get("text", draft_text)
             attempts.append(
                 {
@@ -260,7 +274,7 @@ class LongBookWritterOrchestrator:
                     "edit_ok": edit_res.get("ok", False),
                     "edit_error": edit_res.get("error", ""),
                 }
-            )
+                )
             if save_artifacts:
                 self._persist_attempt_files(
                     project_dir=project_dir,
@@ -274,6 +288,12 @@ class LongBookWritterOrchestrator:
             if review.get("pass", False):
                 passed = True
                 break
+            retry_guidance = self._build_retry_guidance(
+                review=review,
+                chapter_goal=chapter_goal,
+                chapter_no=chapter_no,
+                previous_guidance=retry_guidance,
+            )
 
         if not passed or not final_text.strip():
             reason = "writer_failed_or_quality_gate_failed"
@@ -309,19 +329,23 @@ class LongBookWritterOrchestrator:
         final_text = self._sanitize_for_publish(final_text)
         title_generation_error = ""
         generated_title = ""
-        for _ in range(2):
-            title_by_writer = self.writer.suggest_chapter_title(
-                chapter_text=final_text,
-                chapter_no=chapter_no,
-                chapter_goal=chapter_goal,
-            )
-            if not title_by_writer.get("ok", False):
-                title_generation_error = title_by_writer.get("error", "title_generation_failed")
-                continue
-            generated_title = self._normalize_chapter_title(title_by_writer.get("title", ""))
-            if generated_title:
-                break
-            title_generation_error = "empty_or_too_short_title"
+        # If caller already provides a valid title, publish directly to avoid extra LLM latency/failure.
+        if requested_title and chapter_title:
+            generated_title = chapter_title
+        else:
+            for _ in range(2):
+                title_by_writer = self.writer.suggest_chapter_title(
+                    chapter_text=final_text,
+                    chapter_no=chapter_no,
+                    chapter_goal=chapter_goal,
+                )
+                if not title_by_writer.get("ok", False):
+                    title_generation_error = title_by_writer.get("error", "title_generation_failed")
+                    continue
+                generated_title = self._normalize_chapter_title(title_by_writer.get("title", ""))
+                if generated_title:
+                    break
+                title_generation_error = "empty_or_too_short_title"
 
         if not generated_title:
             self._notify_human_with_planner(
@@ -399,6 +423,216 @@ class LongBookWritterOrchestrator:
                     level="warn",
                 )
         return result
+
+    NETWORK_ERROR_MARKERS = (
+        "read timed out",
+        "request failed",
+        "network_error",
+        "operation not permitted",
+        "max retries exceeded",
+        "failed to establish a new connection",
+        "response read failed",
+        "stream request failed",
+    )
+
+    def run_range(
+        self,
+        book_id: str,
+        chapter_start: int,
+        chapter_end: int,
+        chapter_goal: str,
+        style_constraints: str,
+        target_words: int,
+        min_words: int,
+        max_retries: int,
+        external_retries: int,
+        skip_existing: bool = True,
+        stop_on_plot_block: bool = True,
+        save_artifacts: bool = False,
+    ) -> dict:
+        if chapter_end < chapter_start:
+            raise ValueError(f"chapter_end({chapter_end}) < chapter_start({chapter_start})")
+
+        project_dir = self.settings.projects_dir / book_id
+        publish_dir = project_dir / "05_publish"
+        logs_dir = project_dir / "logs"
+        ensure_dir(logs_dir)
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        log_path = logs_dir / f"run_range_{chapter_start:04d}_{chapter_end:04d}_{ts}.json"
+
+        items: list[dict] = []
+        ok = True
+        stop_reason = "completed"
+        stop_chapter_no = 0
+
+        for chapter_no in range(chapter_start, chapter_end + 1):
+            if skip_existing and any(publish_dir.glob(f"{chapter_no:04d}_*.md")):
+                existing = sorted(publish_dir.glob(f"{chapter_no:04d}_*.md"))[0]
+                items.append(
+                    {
+                        "chapter_no": chapter_no,
+                        "status": "skipped_exists",
+                        "file": str(existing),
+                    }
+                )
+                continue
+
+            chapter_outcome = self._run_chapter_with_external_retry(
+                book_id=book_id,
+                chapter_no=chapter_no,
+                chapter_goal=chapter_goal,
+                style_constraints=style_constraints,
+                target_words=target_words,
+                min_words=min_words,
+                max_retries=max_retries,
+                external_retries=external_retries,
+                stop_on_plot_block=stop_on_plot_block,
+                save_artifacts=save_artifacts,
+            )
+            items.append(chapter_outcome)
+            if chapter_outcome.get("status") == "published":
+                continue
+
+            ok = False
+            stop_reason = chapter_outcome.get("stop_reason", "unknown")
+            stop_chapter_no = chapter_no
+            break
+
+        payload = {
+            "book_id": book_id,
+            "range": [chapter_start, chapter_end],
+            "ok": ok,
+            "stop_reason": stop_reason,
+            "stop_chapter_no": stop_chapter_no,
+            "items": items,
+            "logs_path": str(log_path),
+            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        }
+        write_json(log_path, payload)
+        self._record_engineering_event(
+            project_dir=project_dir,
+            category="change",
+            title=f"批量章节生成 range={chapter_start}-{chapter_end}",
+            details=f"ok={ok}, stop_reason={stop_reason}, stop_chapter_no={stop_chapter_no}",
+            level="info" if ok else "warn",
+        )
+        return payload
+
+    def _run_chapter_with_external_retry(
+        self,
+        book_id: str,
+        chapter_no: int,
+        chapter_goal: str,
+        style_constraints: str,
+        target_words: int,
+        min_words: int,
+        max_retries: int,
+        external_retries: int,
+        stop_on_plot_block: bool,
+        save_artifacts: bool,
+    ) -> dict:
+        last_payload: dict = {}
+        for ext_try in range(1, external_retries + 2):
+            payload = self.run_chapter_pipeline(
+                book_id=book_id,
+                chapter_no=chapter_no,
+                chapter_title="",
+                chapter_goal=chapter_goal,
+                target_words=target_words,
+                style_constraints=style_constraints,
+                max_retries=max_retries,
+                min_words=min_words,
+                save_artifacts=save_artifacts,
+            )
+            last_payload = payload
+            if payload.get("passed") and payload.get("published_path"):
+                return {
+                    "chapter_no": chapter_no,
+                    "status": "published",
+                    "ext_try": ext_try,
+                    "title": payload.get("chapter_title", ""),
+                    "review_score": payload.get("review_score", 0),
+                    "published_path": payload.get("published_path", ""),
+                }
+
+            classification = self._classify_failure(payload)
+            if classification == "plot_block" and stop_on_plot_block:
+                return {
+                    "chapter_no": chapter_no,
+                    "status": "stopped",
+                    "ext_try": ext_try,
+                    "stop_reason": "plot_block",
+                    "review_score": payload.get("review_score", 0),
+                    "last_payload": payload,
+                }
+
+            if ext_try > external_retries:
+                return {
+                    "chapter_no": chapter_no,
+                    "status": "failed",
+                    "ext_try": ext_try,
+                    "stop_reason": f"retry_exhausted_{classification}",
+                    "review_score": payload.get("review_score", 0),
+                    "last_payload": payload,
+                }
+
+        return {
+            "chapter_no": chapter_no,
+            "status": "failed",
+            "stop_reason": "unknown",
+            "last_payload": last_payload,
+        }
+
+    def _classify_failure(self, payload: dict) -> str:
+        attempts = payload.get("attempts", []) or []
+        errors_blob = " | ".join(
+            str(a.get("draft_error", "")) for a in attempts
+        ).lower()
+        title_err = str(payload.get("title_generation_error", "")).lower()
+        if any(marker in errors_blob for marker in self.NETWORK_ERROR_MARKERS):
+            return "network"
+        if any(marker in title_err for marker in self.NETWORK_ERROR_MARKERS):
+            return "network"
+        for attempt in attempts:
+            review = attempt.get("review") or {}
+            for issue in review.get("issues") or []:
+                severity = str(issue.get("severity", "")).lower()
+                issue_type = str(issue.get("type", "")).lower()
+                if severity == "high" and issue_type in {"consistency", "logic"}:
+                    return "plot_block"
+        return "quality"
+
+    def _build_retry_guidance(
+        self,
+        review: dict,
+        chapter_goal: str,
+        chapter_no: int,
+        previous_guidance: str = "",
+        fallback_reason: str = "",
+    ) -> str:
+        lines: list[str] = []
+        lines.append(f"第{chapter_no}章重写要求：必须覆盖章节目标“{chapter_goal}”。")
+        if fallback_reason:
+            lines.append(f"- 上轮失败原因：{fallback_reason}")
+
+        issues = review.get("issues", []) if isinstance(review, dict) else []
+        # 优先放入 high/mid 的具体问题，避免每轮盲重试。
+        for item in issues:
+            sev = str(item.get("severity", "")).lower()
+            if sev in {"high", "mid"}:
+                detail = str(item.get("detail", "")).strip()
+                if detail:
+                    lines.append(f"- 必修问题（{sev}）：{detail}")
+
+        must_fix = review.get("must_fix", []) if isinstance(review, dict) else []
+        for mf in must_fix[:8]:
+            mf_text = str(mf).strip()
+            if mf_text:
+                lines.append(f"- 必须落实：{mf_text}")
+
+        if len(lines) <= 1 and previous_guidance:
+            return previous_guidance
+        return "\n".join(lines)
 
     def _ensure_unique_chapter_title(self, project_dir: Path, chapter_no: int, chapter_title: str) -> str:
         publish_dir = project_dir / "05_publish"

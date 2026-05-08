@@ -1,0 +1,66 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    102,
+    120
+  ],
+  "failed": true,
+  "failed_reason": "chapter_107_merged_too_short_1977",
+  "items": [
+    {
+      "chapter_no": 102,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0102_监管上门前的诱降局.md",
+      "len": 2032
+    },
+    {
+      "chapter_no": 103,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0103_会议室门后的杀局.md",
+      "len": 2934
+    },
+    {
+      "chapter_no": 104,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0104_旧仓库里的最后通牒.md",
+      "len": 2043
+    },
+    {
+      "chapter_no": 105,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0105_北山保险柜抢证夜.md",
+      "len": 2253
+    },
+    {
+      "chapter_no": 106,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0106_残片拼合后的新对手.md",
+      "len": 2449
+    },
+    {
+      "chapter_no": 107,
+      "status": "failed",
+      "stage": "merge",
+      "final_len": 1977,
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1032
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 945
+          }
+        ]
+      }
+    }
+  ],
+  "transition_report_file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/transition_report_102_120_split_20260427_034357.json",
+  "generated_at_utc": "2026-04-27T03:46:14.108307+00:00",
+  "env_timeout": "120"
+}

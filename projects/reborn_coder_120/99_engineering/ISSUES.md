@@ -44,3 +44,13 @@
 - [2026-04-09T03:34:06.126550+00:00] [warn] 章节流水线失败 chapter=28: reason=writer_failed_or_quality_gate_failed
 - [2026-04-09T08:28:42.895436+00:00] [warn] 章节流水线失败 chapter=28: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
 - [2026-04-09T08:40:14.448865+00:00] [warn] 章节流水线失败 chapter=28: reason=writer_failed_or_quality_gate_failed
+- [2026-04-20T06:12:46.192858+00:00] [warn] 章节流水线失败 chapter=101: reason=writer_failed_or_quality_gate_failed
+- [2026-04-20T06:59:04.370183+00:00] [warn] 章节流水线失败 chapter=101: reason=writer_failed_or_quality_gate_failed
+- [2026-04-20T07:27:30.471049+00:00] [warn] 章节流水线失败 chapter=101: reason=writer_failed_or_quality_gate_failed
+- [2026-04-21T02:33:01.374619+00:00] [warn] 章节流水线失败 chapter=101: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NewConnectionError("HTTPConnection(host='172.19.57.3', port=80): Failed to establish a new connection: [Errno 1] Operation not permitted"))
+- [2026-04-21T03:09:43.898276+00:00] [warn] 章节流水线失败 chapter=101: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-04-21T04:19:44.486816+00:00] [warn] 章节流水线失败 chapter=101: reason=response read failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out.
+- [2026-04-22T03:00:39.975080+00:00] [warn] 章节流水线失败 chapter=102: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-04-22T03:06:42.916003+00:00] [warn] 章节流水线失败 chapter=102: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+- [2026-05-06T07:28:15.776359+00:00] [warn] 章节流水线失败 chapter=121: reason=request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
+- [2026-05-07T05:06:54.487021+00:00] [warn] 章节流水线失败 chapter=196: reason=writer_failed_or_quality_gate_failed

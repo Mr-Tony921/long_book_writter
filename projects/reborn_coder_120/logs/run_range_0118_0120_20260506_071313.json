@@ -1,0 +1,29 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    118,
+    120
+  ],
+  "ok": true,
+  "stop_reason": "completed",
+  "stop_chapter_no": 0,
+  "items": [
+    {
+      "chapter_no": 118,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0118_内鬼落网突生反转.md"
+    },
+    {
+      "chapter_no": 119,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0119_我等你很久了.md"
+    },
+    {
+      "chapter_no": 120,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0120_收网之时再生变数.md"
+    }
+  ],
+  "logs_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/run_range_0118_0120_20260506_071313.json",
+  "generated_at_utc": "2026-05-06T07:13:13.672407+00:00"
+}

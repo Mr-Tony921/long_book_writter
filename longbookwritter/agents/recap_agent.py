@@ -15,14 +15,14 @@ class RecapAgent:
         recap_file: Path,
         plan_data: dict,
         memory: dict,
-        max_recent_chapters: int = 5,
+        max_recent_chapters: int = 3,
     ) -> dict:
         chapters = sorted(publish_dir.glob("*.md"))
         recent = chapters[-max_recent_chapters:]
         recent_text = []
         for p in recent:
             text = p.read_text(encoding="utf-8")
-            recent_text.append(f"[{p.name}]\n{text[:3000]}")
+            recent_text.append(f"[{p.name}]\n{text[:1500]}")
         joined_recent = "\n\n".join(recent_text)
         theme = plan_data.get("plan", {}).get("core_theme", "")
         conflict = plan_data.get("plan", {}).get("core_conflict", "")

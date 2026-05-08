@@ -1,0 +1,42 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    102,
+    120
+  ],
+  "failed": true,
+  "failed_reason": "chapter_103_merged_too_short_1905",
+  "items": [
+    {
+      "chapter_no": 102,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0102_监管上门前的诱降局.md",
+      "len": 2032
+    },
+    {
+      "chapter_no": 103,
+      "status": "failed",
+      "stage": "merge",
+      "final_len": 1905,
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1031
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 874
+          }
+        ]
+      }
+    }
+  ],
+  "transition_report_file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/transition_report_102_120_split_20260427_033158.json",
+  "generated_at_utc": "2026-04-27T03:34:14.163766+00:00",
+  "env_timeout": "120"
+}

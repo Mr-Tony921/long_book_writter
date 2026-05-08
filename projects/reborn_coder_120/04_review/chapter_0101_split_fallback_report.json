@@ -1,0 +1,22 @@
+{
+  "chapter_no": 101,
+  "chapter_title": "空U盘照片里的旧名字",
+  "mode": "split_writer_fallback",
+  "logs": [
+    {
+      "part": "part1",
+      "attempt": 1,
+      "ok": true,
+      "len": 1164
+    },
+    {
+      "part": "part2",
+      "attempt": 1,
+      "ok": true,
+      "len": 937
+    }
+  ],
+  "final_len": 2101,
+  "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0101_空U盘照片里的旧名字.md",
+  "generated_at_utc": "2026-04-21T06:56:03.800659+00:00"
+}

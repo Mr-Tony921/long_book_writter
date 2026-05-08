@@ -1,0 +1,110 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    181,
+    192
+  ],
+  "ok": true,
+  "stop_reason": "completed",
+  "stop_chapter_no": 0,
+  "items": [
+    {
+      "chapter_no": 181,
+      "status": "published",
+      "ext_try": 1,
+      "title": "八年旧账终于清了",
+      "review_score": 77,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0181_八年旧账终于清了.md"
+    },
+    {
+      "chapter_no": 182,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧债清了，心意动了",
+      "review_score": 84,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0182_旧债清了，心意动了.md"
+    },
+    {
+      "chapter_no": 183,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆重启故人归",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0183_云帆重启故人归.md"
+    },
+    {
+      "chapter_no": 184,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆再出发",
+      "review_score": 83,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0184_云帆再出发.md"
+    },
+    {
+      "chapter_no": 185,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆重聚故人归",
+      "review_score": 84,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0185_云帆重聚故人归.md"
+    },
+    {
+      "chapter_no": 186,
+      "status": "published",
+      "ext_try": 1,
+      "title": "千帆过尽再出发",
+      "review_score": 81,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0186_千帆过尽再出发.md"
+    },
+    {
+      "chapter_no": 187,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆重启，落日正好",
+      "review_score": 86,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0187_云帆重启，落日正好.md"
+    },
+    {
+      "chapter_no": 188,
+      "status": "published",
+      "ext_try": 1,
+      "title": "云帆重启，心照不宣",
+      "review_score": 82,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0188_云帆重启，心照不宣.md"
+    },
+    {
+      "chapter_no": 189,
+      "status": "published",
+      "ext_try": 1,
+      "title": "新云帆，旧心意",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0189_新云帆，旧心意.md"
+    },
+    {
+      "chapter_no": 190,
+      "status": "published",
+      "ext_try": 1,
+      "title": "藏在云里的心意",
+      "review_score": 78,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0190_藏在云里的心意.md"
+    },
+    {
+      "chapter_no": 191,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账清了新帆启",
+      "review_score": 80,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0191_旧账清了新帆启.md"
+    },
+    {
+      "chapter_no": 192,
+      "status": "published",
+      "ext_try": 1,
+      "title": "旧账已清，新帆待发",
+      "review_score": 82,
+      "published_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0192_旧账已清，新帆待发.md"
+    }
+  ],
+  "logs_path": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/run_range_0181_0192_20260507_025627.json",
+  "generated_at_utc": "2026-05-07T04:24:23.337724+00:00"
+}

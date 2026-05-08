@@ -1,0 +1,64 @@
+{
+  "range": [
+    102,
+    120
+  ],
+  "chapter_count_found": 5,
+  "rows": [
+    {
+      "chapter_no": 102,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0102_监管上门前的诱降局.md",
+      "map_tokens": [
+        "总部",
+        "机房"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": null
+    },
+    {
+      "chapter_no": 103,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0103_会议室门后的杀局.md",
+      "map_tokens": [
+        "会议室",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 104,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0104_旧仓库里的最后通牒.md",
+      "map_tokens": [
+        "仓库",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 105,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0105_北山保险柜抢证夜.md",
+      "map_tokens": [
+        "仓库",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": false
+    },
+    {
+      "chapter_no": 106,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0106_残片拼合后的新对手.md",
+      "map_tokens": [
+        "总部"
+      ],
+      "map_count": 1,
+      "action_count": 0,
+      "map_changed_vs_prev": false
+    }
+  ],
+  "window_risks": []
+}

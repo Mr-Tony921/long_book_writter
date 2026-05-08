@@ -16,6 +16,7 @@ class WriterAgent:
         scene_plan: list[str] | None = None,
         chapter_no: int = 1,
         chapter_title: str = "",
+        retry_guidance: str = "",
     ) -> dict:
         scene_text = ""
         if scene_plan:
@@ -31,6 +32,9 @@ class WriterAgent:
             if banned_aliases:
                 pairs = [f"{k}->{v}" for k, v in banned_aliases.items()]
                 character_text += "禁用别名映射（出现左侧名字视为错误）: " + "；".join(pairs) + "\n"
+        retry_text = ""
+        if retry_guidance:
+            retry_text = "上一轮失败修复指令（必须逐条落实）:\n" + retry_guidance + "\n"
 
         prompt = (
             "你是中文网文小说作者，请直接输出可发布正文。\n"
@@ -43,6 +47,10 @@ class WriterAgent:
             "6. 与“策划写作简报”的主角名、城市、时代保持完全一致\n"
             "7. 本章必须承接“本章必须延续/未结线索”，禁止从零开新故事\n\n"
             "8. 时间线只能向前推进，不得回跳到更早月份（除非明确是回忆且有清晰提示）\n\n"
+            "9. 文风要更有趣：多用人物博弈、反差、机智对话推进，少用总结解释\n"
+            "10. 避免打圈：同一冲突不要反复重复，必须引入新变量并推进结果\n"
+            "11. 地图变化是阶段性要求：不必每章都换地图，但连续多章不能在同一地点同一冲突里原地打转\n"
+            "12. 时间跨度要克制：与上一章保持连续叙事，不要每章开头就隔很久，除非剧情明确需要\n\n"
             f"章节号: {chapter_no}\n"
             f"章节名: {chapter_title}\n"
             f"章节目标: {chapter_goal}\n"
@@ -52,6 +60,7 @@ class WriterAgent:
             f"策划写作简报: {planner_brief}\n"
             f"{scene_text}"
             f"上文摘要: {context_summary}\n"
+            f"{retry_text}"
         )
         result = self.llm_client.generate_text(prompt_text=prompt)
         if not result.success:

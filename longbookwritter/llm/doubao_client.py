@@ -1,5 +1,6 @@
 import getpass
 import json
+import time
 import uuid
 
 import requests
@@ -66,13 +67,24 @@ class DoubaoTextClient(BaseTextClient):
                 self.api_url,
                 headers=self.headers,
                 data=json.dumps(request_data, ensure_ascii=False).encode("utf-8"),
-                timeout=self.settings.request_timeout_seconds,
+                timeout=(self.settings.connect_timeout_seconds, self.settings.request_timeout_seconds),
                 proxies=self.proxies,
+                stream=True,
             )
         except requests.exceptions.RequestException as exc:
             return LLMResult(success=False, content=f"request failed: {exc}", error_type="network_error")
 
-        return self._parse_sync_response(response)
+        response_text, timeout_error = self._read_response_text_with_deadline(
+            response=response,
+            total_timeout_seconds=self.settings.request_timeout_seconds,
+        )
+        if timeout_error:
+            return LLMResult(
+                success=False,
+                content=timeout_error,
+                error_type="timeout_error",
+            )
+        return self._parse_sync_response(response=response, response_text=response_text)
 
     def _request_streaming(self, request_data: dict) -> LLMResult:
         stream_payload = dict(request_data)
@@ -84,7 +96,7 @@ class DoubaoTextClient(BaseTextClient):
                 self.api_url,
                 headers=self.headers,
                 data=json.dumps(stream_payload, ensure_ascii=False).encode("utf-8"),
-                timeout=(10, self.settings.request_timeout_seconds),
+                timeout=(self.settings.connect_timeout_seconds, self.settings.request_timeout_seconds),
                 proxies=self.proxies,
                 stream=True,
             )
@@ -103,7 +115,14 @@ class DoubaoTextClient(BaseTextClient):
         content_type = (response.headers.get("Content-Type") or "").lower()
         if "text/event-stream" in content_type:
             chunks: list[str] = []
+            start = time.monotonic()
             for raw_line in response.iter_lines(decode_unicode=True):
+                if time.monotonic() - start > self.settings.request_timeout_seconds:
+                    return LLMResult(
+                        success=False,
+                        content=f"stream total timeout exceeded ({self.settings.request_timeout_seconds}s)",
+                        error_type="timeout_error",
+                    )
                 if not raw_line:
                     continue
                 line = raw_line.strip()
@@ -139,25 +158,25 @@ class DoubaoTextClient(BaseTextClient):
             )
         return self._parse_response_json(response_json=response_json, raw_text=response.text)
 
-    def _parse_sync_response(self, response: requests.Response) -> LLMResult:
+    def _parse_sync_response(self, response: requests.Response, response_text: str) -> LLMResult:
         if response.status_code != 200:
             return LLMResult(
                 success=False,
-                content=f"http {response.status_code}: {response.text}",
+                content=f"http {response.status_code}: {response_text}",
                 error_type="http_error",
                 status_code=response.status_code,
-                raw_response=response.text,
+                raw_response=response_text,
             )
         try:
-            response_json = response.json()
+            response_json = json.loads(response_text)
         except Exception as exc:  # noqa: BLE001
             return LLMResult(
                 success=False,
                 content=f"invalid json response: {exc}",
                 error_type="parse_error",
-                raw_response=response.text,
+                raw_response=response_text,
             )
-        return self._parse_response_json(response_json=response_json, raw_text=response.text)
+        return self._parse_response_json(response_json=response_json, raw_text=response_text)
 
     def _parse_response_json(self, response_json: dict, raw_text: str) -> LLMResult:
         if response_json.get("code") != 10000:
@@ -204,3 +223,23 @@ class DoubaoTextClient(BaseTextClient):
                 return cur
         return ""
 
+    def _read_response_text_with_deadline(
+        self, response: requests.Response, total_timeout_seconds: int
+    ) -> tuple[str, str]:
+        start = time.monotonic()
+        chunks: list[str] = []
+        try:
+            for piece in response.iter_content(chunk_size=8192, decode_unicode=True):
+                if time.monotonic() - start > total_timeout_seconds:
+                    return "", f"non-stream total timeout exceeded ({total_timeout_seconds}s)"
+                if not piece:
+                    continue
+                if isinstance(piece, bytes):
+                    chunks.append(piece.decode("utf-8", errors="replace"))
+                else:
+                    chunks.append(piece)
+        except requests.exceptions.RequestException as exc:
+            return "", f"response read failed: {exc}"
+        finally:
+            response.close()
+        return "".join(chunks), ""

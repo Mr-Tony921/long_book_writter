@@ -1,0 +1,102 @@
+{
+  "score": 83,
+  "issues": [
+    {
+      "type": "consistency",
+      "detail": "章节目标未被明显覆盖",
+      "severity": "mid"
+    },
+    {
+      "type": "consistency",
+      "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+      "severity": "low"
+    },
+    {
+      "type": "consistency",
+      "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+      "severity": "low"
+    },
+    {
+      "type": "consistency",
+      "detail": "关键连续性信息未出现：LLM辅助",
+      "severity": "low"
+    },
+    {
+      "type": "consistency",
+      "detail": "前情衔接不足：未体现策划要求“解读旧照片信息，确认陈曦的真实立场”",
+      "severity": "low"
+    },
+    {
+      "type": "consistency",
+      "detail": "前情衔接不足：未体现策划要求“确认林溪与张广涛的现状，对接万客来总部的局势”",
+      "severity": "low"
+    },
+    {
+      "type": "logic",
+      "detail": "故事背景设定为2019年，彼时LLM尚未进入商业化应用阶段，文中多处使用LLM相关设定，虽符合策划要求的关键词规范，但存在轻微逻辑违和",
+      "severity": "low"
+    }
+  ],
+  "must_fix": [
+    "补齐本章目标事件，避免偏离主任务。"
+  ],
+  "pass": false,
+  "degraded_mode": false,
+  "sources": {
+    "llm": {
+      "score": 95,
+      "issues": [
+        {
+          "type": "logic",
+          "detail": "故事背景设定为2019年，彼时LLM尚未进入商业化应用阶段，文中多处使用LLM相关设定，虽符合策划要求的关键词规范，但存在轻微逻辑违和",
+          "severity": "low"
+        }
+      ],
+      "must_fix": [],
+      "pass": true,
+      "source": "llm",
+      "available": true
+    },
+    "rules": {
+      "source": "rules",
+      "available": true,
+      "score": 71,
+      "issues": [
+        {
+          "type": "consistency",
+          "detail": "章节目标未被明显覆盖",
+          "severity": "mid"
+        },
+        {
+          "type": "consistency",
+          "detail": "章节锚点未明显体现: 每章必须有明确推进点",
+          "severity": "low"
+        },
+        {
+          "type": "consistency",
+          "detail": "关键背景缺失：时代信息“2019年前后互联网行业周期”未出现",
+          "severity": "low"
+        },
+        {
+          "type": "consistency",
+          "detail": "关键连续性信息未出现：LLM辅助",
+          "severity": "low"
+        },
+        {
+          "type": "consistency",
+          "detail": "前情衔接不足：未体现策划要求“解读旧照片信息，确认陈曦的真实立场”",
+          "severity": "low"
+        },
+        {
+          "type": "consistency",
+          "detail": "前情衔接不足：未体现策划要求“确认林溪与张广涛的现状，对接万客来总部的局势”",
+          "severity": "low"
+        }
+      ],
+      "must_fix": [
+        "补齐本章目标事件，避免偏离主任务。"
+      ],
+      "pass": false
+    }
+  }
+}

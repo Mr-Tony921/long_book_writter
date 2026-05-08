@@ -7,6 +7,7 @@ from pathlib import Path
 class Settings:
     root_dir: Path
     projects_dir: Path
+    connect_timeout_seconds: int
     request_timeout_seconds: int
     doubao_api_key: str
     doubao_model: str
@@ -28,6 +29,7 @@ def load_settings() -> Settings:
     return Settings(
         root_dir=root,
         projects_dir=root / "projects",
+        connect_timeout_seconds=int(os.getenv("LONGBOOKWRITTER_CONNECT_TIMEOUT", "20")),
         request_timeout_seconds=int(os.getenv("LONGBOOKWRITTER_REQUEST_TIMEOUT", "180")),
         doubao_api_key=os.getenv("DOUBAO_API_KEY", "89e5c2204ffaca8086cad6dee45ef43f"),
         doubao_model=os.getenv("DOUBAO_MODEL", "doubao-seed-2.0-260215"),

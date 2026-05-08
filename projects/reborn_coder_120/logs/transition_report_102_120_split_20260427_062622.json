@@ -1,0 +1,224 @@
+{
+  "range": [
+    102,
+    120
+  ],
+  "chapter_count_found": 19,
+  "rows": [
+    {
+      "chapter_no": 102,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0102_监管上门前的诱降局.md",
+      "map_tokens": [
+        "总部",
+        "机房"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": null
+    },
+    {
+      "chapter_no": 103,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0103_会议室门后的杀局.md",
+      "map_tokens": [
+        "会议室",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 104,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0104_旧仓库里的最后通牒.md",
+      "map_tokens": [
+        "仓库",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 105,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0105_北山保险柜抢证夜.md",
+      "map_tokens": [
+        "仓库",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": false
+    },
+    {
+      "chapter_no": 106,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0106_残片拼合后的新对手.md",
+      "map_tokens": [
+        "总部"
+      ],
+      "map_count": 1,
+      "action_count": 0,
+      "map_changed_vs_prev": false
+    },
+    {
+      "chapter_no": 107,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0107_主线推进107.md",
+      "map_tokens": [
+        "总部"
+      ],
+      "map_count": 1,
+      "action_count": 2,
+      "map_changed_vs_prev": false
+    },
+    {
+      "chapter_no": 108,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0108_主线推进108.md",
+      "map_tokens": [
+        "写字楼",
+        "办公室",
+        "总部"
+      ],
+      "map_count": 3,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 109,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0109_主线推进109.md",
+      "map_tokens": [
+        "别墅",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 2,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 110,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0110_主线推进110.md",
+      "map_tokens": [
+        "会议室",
+        "写字楼"
+      ],
+      "map_count": 2,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 111,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0111_主线推进111.md",
+      "map_tokens": [
+        "总部"
+      ],
+      "map_count": 1,
+      "action_count": 1,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 112,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0112_主线推进112.md",
+      "map_tokens": [
+        "会议室"
+      ],
+      "map_count": 1,
+      "action_count": 1,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 113,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0113_主线推进113.md",
+      "map_tokens": [
+        "仓库",
+        "总部"
+      ],
+      "map_count": 2,
+      "action_count": 1,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 114,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0114_主线推进114.md",
+      "map_tokens": [
+        "仓库",
+        "办公室",
+        "总部"
+      ],
+      "map_count": 3,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 115,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0115_主线推进115.md",
+      "map_tokens": [
+        "仓库",
+        "总部",
+        "车库"
+      ],
+      "map_count": 3,
+      "action_count": 1,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 116,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0116_主线推进116.md",
+      "map_tokens": [
+        "仓库",
+        "总部",
+        "码头"
+      ],
+      "map_count": 3,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 117,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0117_主线推进117.md",
+      "map_tokens": [
+        "仓库",
+        "总部",
+        "机场",
+        "车站"
+      ],
+      "map_count": 4,
+      "action_count": 1,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 118,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0118_主线推进118.md",
+      "map_tokens": [
+        "仓库",
+        "医院",
+        "总部",
+        "机场",
+        "码头"
+      ],
+      "map_count": 5,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    },
+    {
+      "chapter_no": 119,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0119_主线推进119.md",
+      "map_tokens": [
+        "总部"
+      ],
+      "map_count": 1,
+      "action_count": 0,
+      "map_changed_vs_prev": false
+    },
+    {
+      "chapter_no": 120,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0120_主线推进120.md",
+      "map_tokens": [
+        "仓库",
+        "总部",
+        "机场"
+      ],
+      "map_count": 3,
+      "action_count": 0,
+      "map_changed_vs_prev": true
+    }
+  ],
+  "window_risks": []
+}

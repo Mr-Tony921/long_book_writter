@@ -1,0 +1,185 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    102,
+    120
+  ],
+  "failed": true,
+  "failed_reason": "chapter_110_part1_failed",
+  "items": [
+    {
+      "chapter_no": 102,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0102_监管上门前的诱降局.md",
+      "len": 2032
+    },
+    {
+      "chapter_no": 103,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0103_会议室门后的杀局.md",
+      "len": 2934
+    },
+    {
+      "chapter_no": 104,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0104_旧仓库里的最后通牒.md",
+      "len": 2043
+    },
+    {
+      "chapter_no": 105,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0105_北山保险柜抢证夜.md",
+      "len": 2253
+    },
+    {
+      "chapter_no": 106,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0106_残片拼合后的新对手.md",
+      "len": 2449
+    },
+    {
+      "chapter_no": 107,
+      "status": "published",
+      "title": "主线推进107",
+      "len": 2402,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0107_主线推进107.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1146
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:924"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1256
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 108,
+      "status": "published",
+      "title": "主线推进108",
+      "len": 2483,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0108_主线推进108.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1063
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:884"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1420
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 109,
+      "status": "published",
+      "title": "主线推进109",
+      "len": 2073,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0109_主线推进109.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1015
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:797"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1058
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 110,
+      "status": "failed",
+      "stage": "part1",
+      "logs": [
+        {
+          "attempt": 1,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa1bbb20>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 2,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa2229e0>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 3,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa2215a0>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 4,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa221720>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 5,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa1bb7f0>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 6,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa1bb5e0>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 7,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa222380>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 8,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa222cb0>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 9,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa2230a0>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        },
+        {
+          "attempt": 10,
+          "ok": false,
+          "error": "request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by ConnectTimeoutError(<HTTPConnection(host='172.19.57.3', port=80) at 0x7f7afa220340>, 'Connection to 172.19.57.3 timed out. (connect timeout=10)'))"
+        }
+      ]
+    }
+  ],
+  "transition_report_file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/transition_report_102_120_split_20260427_034629.json",
+  "generated_at_utc": "2026-04-27T04:03:50.456826+00:00",
+  "env_timeout": "120"
+}

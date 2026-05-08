@@ -1,0 +1,380 @@
+{
+  "book_id": "reborn_coder_120",
+  "range": [
+    102,
+    120
+  ],
+  "failed": false,
+  "failed_reason": "",
+  "items": [
+    {
+      "chapter_no": 102,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0102_监管上门前的诱降局.md",
+      "len": 2032
+    },
+    {
+      "chapter_no": 103,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0103_会议室门后的杀局.md",
+      "len": 2934
+    },
+    {
+      "chapter_no": 104,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0104_旧仓库里的最后通牒.md",
+      "len": 2043
+    },
+    {
+      "chapter_no": 105,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0105_北山保险柜抢证夜.md",
+      "len": 2253
+    },
+    {
+      "chapter_no": 106,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0106_残片拼合后的新对手.md",
+      "len": 2449
+    },
+    {
+      "chapter_no": 107,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0107_主线推进107.md",
+      "len": 2402
+    },
+    {
+      "chapter_no": 108,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0108_主线推进108.md",
+      "len": 2483
+    },
+    {
+      "chapter_no": 109,
+      "status": "skipped_exists",
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0109_主线推进109.md",
+      "len": 2073
+    },
+    {
+      "chapter_no": 110,
+      "status": "published",
+      "title": "主线推进110",
+      "len": 2169,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0110_主线推进110.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1036
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:852"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1133
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 111,
+      "status": "published",
+      "title": "主线推进111",
+      "len": 2258,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0111_主线推进111.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1099
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:950"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1159
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 112,
+      "status": "published",
+      "title": "主线推进112",
+      "len": 2150,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0112_主线推进112.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1019
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:894"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1131
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 113,
+      "status": "published",
+      "title": "主线推进113",
+      "len": 2534,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0113_主线推进113.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:941"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1205
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:991"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1329
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 114,
+      "status": "published",
+      "title": "主线推进114",
+      "len": 2302,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0114_主线推进114.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:963"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1169
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:849"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1133
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 115,
+      "status": "published",
+      "title": "主线推进115",
+      "len": 2324,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0115_主线推进115.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:918"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1227
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1097
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 116,
+      "status": "published",
+      "title": "主线推进116",
+      "len": 2345,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0116_主线推进116.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:981"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1323
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1022
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 117,
+      "status": "published",
+      "title": "主线推进117",
+      "len": 2364,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0117_主线推进117.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1074
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:881"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1290
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 118,
+      "status": "published",
+      "title": "主线推进118",
+      "len": 2170,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0118_主线推进118.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1133
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1037
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 119,
+      "status": "published",
+      "title": "主线推进119",
+      "len": 2572,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0119_主线推进119.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": true,
+            "len": 1073
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:830"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1499
+          }
+        ]
+      }
+    },
+    {
+      "chapter_no": 120,
+      "status": "published",
+      "title": "主线推进120",
+      "len": 2820,
+      "file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/05_publish/0120_主线推进120.md",
+      "logs": {
+        "part1": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:993"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1304
+          }
+        ],
+        "part2": [
+          {
+            "attempt": 1,
+            "ok": false,
+            "error": "too_short:878"
+          },
+          {
+            "attempt": 2,
+            "ok": true,
+            "len": 1516
+          }
+        ]
+      }
+    }
+  ],
+  "transition_report_file": "/mnt/afs_ocr/tongronglei/workspace/mathocr/9_longbookwritter_doubao/projects/reborn_coder_120/logs/transition_report_102_120_split_20260427_062622.json",
+  "generated_at_utc": "2026-04-27T07:21:15.601115+00:00",
+  "env_timeout": "120"
+}

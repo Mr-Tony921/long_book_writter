@@ -194,3 +194,73 @@
 2. 确认写作模型返回的是小说正文而非流程文本
 3. 问题修复后重新执行第28章生成
 
+[策划提醒] 阶段：chapter_0101_AUTO_TITLE
+失败原因：writer_failed_or_quality_gate_failed
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第101章生成
+
+[策划提醒] 阶段：chapter_0101_AUTO_TITLE
+失败原因：writer_failed_or_quality_gate_failed
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第101章生成
+
+[策划提醒] 阶段：chapter_0101_AUTO_TITLE
+失败原因：writer_failed_or_quality_gate_failed
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第101章生成
+
+[策划提醒] 阶段：chapter_0101_空U盘照片里的旧名字
+失败原因：request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Max retries exceeded with url: /gateway/chatTask/callResult (Caused by NewConnectionError("HTTPConnection(host='172.19.57.3', port=80): Failed to establish a new connection: [Errno 1] Operation not permitted"))
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第101章生成
+
+[策划提醒] 阶段：chapter_0101_空U盘照片里的旧名字
+失败原因：request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第101章生成
+
+[策划提醒] 阶段：chapter_0101_空U盘照片里的旧名字
+失败原因：response read failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out.
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第101章生成
+
+[策划提醒] 阶段：chapter_0102_主线推进102
+失败原因：request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第102章生成
+
+[策划提醒] 阶段：chapter_0102_主线推进102
+失败原因：request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=120)
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第102章生成
+
+[策划提醒] 阶段：chapter_0121_
+失败原因：request failed: HTTPConnectionPool(host='172.19.57.3', port=80): Read timed out. (read timeout=180)
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第121章生成
+
+[策划提醒] 阶段：chapter_0196_
+失败原因：writer_failed_or_quality_gate_failed
+建议动作：
+1. 检查 Doubao 连通性和 API 配置
+2. 确认写作模型返回的是小说正文而非流程文本
+3. 问题修复后重新执行第196章生成
+
