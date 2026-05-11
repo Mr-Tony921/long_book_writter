@@ -3,11 +3,14 @@ import json
 import time
 from pathlib import Path
 
+from longbookwritter.agents.card_seeder import CardSeeder, format_card_review
+from longbookwritter.cards.store import list_character_cards
 from longbookwritter.config import load_settings
 from longbookwritter.llm.doubao_client import DoubaoTextClient
 from longbookwritter.orchestrator import LongBookWritterOrchestrator
 from longbookwritter.plan_hitl import HitlPlanner, list_volume_statuses
 from longbookwritter.schemas import PlanInput
+from longbookwritter.utils.io import read_json, write_json, write_text
 from longbookwritter.utils.profile import load_run_profile
 
 
@@ -122,6 +125,44 @@ def build_parser() -> argparse.ArgumentParser:
     p_approve.add_argument("--book-id", required=True)
     p_approve.add_argument("--volume", required=True, type=int)
 
+    p_seed = sub.add_parser(
+        "seed-cards",
+        help=(
+            "Auto-fill character/event card baselines from 00_config/seed_roster.json. "
+            "Writes one JSON card per entry plus a _seed_review.md with A/B/C options."
+        ),
+    )
+    p_seed.add_argument("--book-id", required=True)
+    p_seed.add_argument(
+        "--only", default=None,
+        help="Restrict to a single character name or event_id (substring match).",
+    )
+    p_seed.add_argument(
+        "--only-characters", action="store_true",
+        help="Skip the events section of the roster.",
+    )
+    p_seed.add_argument(
+        "--only-events", action="store_true",
+        help="Skip the characters section of the roster.",
+    )
+    p_seed.add_argument(
+        "--force", action="store_true",
+        help="Overwrite existing cards (otherwise existing cards are skipped).",
+    )
+
+    p_seed_cfg = sub.add_parser(
+        "seed-config",
+        help=(
+            "Derive 00_config/story_facts.json and character_constraints.json from "
+            "the existing character cards. Run after seed-cards (and after any edits)."
+        ),
+    )
+    p_seed_cfg.add_argument("--book-id", required=True)
+    p_seed_cfg.add_argument(
+        "--force", action="store_true",
+        help="Overwrite story_facts / character_constraints content (otherwise merge).",
+    )
+
     p_check = sub.add_parser(
         "check-connectivity",
         help="Probe Doubao API end-to-end and print actionable diagnostic.",
@@ -169,6 +210,191 @@ def _run_check_connectivity(args) -> int:
     if result.error_type == "parse_error":
         return 2
     return 1
+
+
+def _gather_book_context(project_dir: Path) -> dict:
+    book_cfg_path = project_dir / "00_config" / "book_config.json"
+    plan_path = project_dir / "01_plan" / "master_plan.json"
+    ctx: dict = {}
+    if book_cfg_path.exists():
+        try:
+            cfg = read_json(book_cfg_path)
+            ctx["title"] = cfg.get("title", "")
+            ctx["canon_reference"] = cfg.get("canon_reference", "")
+        except Exception:
+            pass
+    if plan_path.exists():
+        try:
+            plan = read_json(plan_path)
+            inner = plan.get("plan", {}) or {}
+            ctx["book_positioning"] = inner.get("book_positioning", "")
+            ctx["core_theme"] = inner.get("core_theme", "")
+            ctx["core_conflict"] = inner.get("core_conflict", "")
+            ctx["style"] = inner.get("tone", "") or plan.get("input", {}).get("tone", "")
+        except Exception:
+            pass
+    return ctx
+
+
+def _run_seed_cards(settings, args) -> int:
+    project_dir = settings.projects_dir / args.book_id
+    if not project_dir.exists():
+        print(json.dumps({"ok": False, "error": f"project_dir_missing: {project_dir}"}, ensure_ascii=False, indent=2))
+        return 2
+    roster_path = project_dir / "00_config" / "seed_roster.json"
+    if not roster_path.exists():
+        print(json.dumps(
+            {"ok": False, "error": f"seed_roster_missing: {roster_path}",
+             "hint": "Run init-project first, then edit seed_roster.json with your characters/events."},
+            ensure_ascii=False, indent=2,
+        ))
+        return 2
+    try:
+        roster = read_json(roster_path)
+    except Exception as exc:
+        print(json.dumps({"ok": False, "error": f"seed_roster_unreadable: {exc}"}, ensure_ascii=False, indent=2))
+        return 2
+
+    book_ctx = _gather_book_context(project_dir)
+    client = DoubaoTextClient(settings=settings)
+    seeder = CardSeeder(llm_client=client)
+
+    char_results: list[dict] = []
+    event_results: list[dict] = []
+
+    if not args.only_events:
+        for entry in roster.get("characters", []) or []:
+            name = str(entry.get("name", "")).strip()
+            if not name or name.startswith("示例") or name.startswith("_"):
+                continue
+            if args.only and args.only not in name:
+                continue
+            res = seeder.seed_character_card(
+                name=name,
+                is_canon=bool(entry.get("is_canon", False)),
+                brief=str(entry.get("brief", "") or ""),
+                book_context=book_ctx,
+                project_dir=project_dir,
+                force=args.force,
+            )
+            char_results.append(res)
+
+    if not args.only_characters:
+        for entry in roster.get("events", []) or []:
+            event_id = str(entry.get("event_id", "")).strip()
+            if not event_id or event_id.startswith("example_") or event_id.startswith("_"):
+                continue
+            if args.only and args.only not in event_id:
+                continue
+            res = seeder.seed_event_card(
+                event_id=event_id,
+                is_canon=bool(entry.get("is_canon", False)),
+                name=str(entry.get("name", "") or ""),
+                brief=str(entry.get("brief", "") or ""),
+                planned_chapter_range=str(entry.get("planned_chapter_range", "") or ""),
+                book_context=book_ctx,
+                project_dir=project_dir,
+                force=args.force,
+            )
+            event_results.append(res)
+
+    review_path = project_dir / "00_config" / "cards" / "_seed_review.md"
+    write_text(review_path, format_card_review(char_results, event_results))
+
+    payload = {
+        "ok": True,
+        "book_id": args.book_id,
+        "characters_seeded": sum(1 for r in char_results if r.get("path")),
+        "characters_skipped": sum(1 for r in char_results if r.get("skipped")),
+        "characters_failed": sum(1 for r in char_results if r.get("error")),
+        "events_seeded": sum(1 for r in event_results if r.get("path")),
+        "events_skipped": sum(1 for r in event_results if r.get("skipped")),
+        "events_failed": sum(1 for r in event_results if r.get("error")),
+        "review_path": str(review_path),
+        "characters": char_results,
+        "events": event_results,
+    }
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    if payload["characters_failed"] or payload["events_failed"]:
+        return 3
+    return 0
+
+
+def _run_seed_config(settings, args) -> int:
+    project_dir = settings.projects_dir / args.book_id
+    if not project_dir.exists():
+        print(json.dumps({"ok": False, "error": f"project_dir_missing: {project_dir}"}, ensure_ascii=False, indent=2))
+        return 2
+    cards = list_character_cards(project_dir)
+    if not cards:
+        print(json.dumps(
+            {"ok": False, "error": "no_character_cards", "hint": "run seed-cards first"},
+            ensure_ascii=False, indent=2,
+        ))
+        return 2
+
+    # Pick the highest-importance protagonist (or fall back to importance order).
+    cards_sorted = sorted(cards, key=lambda c: (c.role == "protagonist", c.importance), reverse=True)
+    protagonist = cards_sorted[0]
+
+    fixed_names = sorted({c.name for c in cards if c.name})
+    banned_phrases: list[str] = []
+    # Collect protagonist + female_lead secrets as banned phrases (rough proxy: hard mentions).
+    for c in cards:
+        if c.role in ("protagonist", "female_lead") and c.secret:
+            # The secret value itself is rarely a leak phrase; we add the most explicit short forms.
+            for token in ("我来自现代", "我穿越来的", "21世纪", "现代地球", "穿越者"):
+                if token not in banned_phrases:
+                    banned_phrases.append(token)
+            break
+
+    story_facts_path = project_dir / "00_config" / "story_facts.json"
+    char_constraints_path = project_dir / "00_config" / "character_constraints.json"
+
+    if args.force or not story_facts_path.exists():
+        existing_facts: dict = {}
+    else:
+        try:
+            existing_facts = read_json(story_facts_path)
+        except Exception:
+            existing_facts = {}
+    facts = {
+        "protagonist_name": existing_facts.get("protagonist_name") or protagonist.name,
+        "city": existing_facts.get("city", ""),
+        "time_period": existing_facts.get("time_period", ""),
+        "must_mention": existing_facts.get("must_mention", []) or [],
+        "notes": existing_facts.get("notes", "由 seed-config 从角色卡派生；可手动覆盖。"),
+    }
+    write_json(story_facts_path, facts)
+
+    if args.force or not char_constraints_path.exists():
+        existing_cc: dict = {}
+    else:
+        try:
+            existing_cc = read_json(char_constraints_path)
+        except Exception:
+            existing_cc = {}
+    cc = {
+        "fixed_names": sorted(set((existing_cc.get("fixed_names", []) or []) + fixed_names)),
+        "banned_aliases": existing_cc.get("banned_aliases", {}) or {},
+        "banned_phrases": sorted(set((existing_cc.get("banned_phrases", []) or []) + banned_phrases)),
+        "notes": existing_cc.get(
+            "notes",
+            "fixed_names 自动汇总自角色卡；banned_phrases 包含通用穿越者身份保密关键词。可手动补充。",
+        ),
+    }
+    write_json(char_constraints_path, cc)
+
+    payload = {
+        "ok": True,
+        "protagonist_name": facts["protagonist_name"],
+        "fixed_names_count": len(cc["fixed_names"]),
+        "banned_phrases_count": len(cc["banned_phrases"]),
+        "story_facts_path": str(story_facts_path),
+        "character_constraints_path": str(char_constraints_path),
+    }
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    return 0
 
 
 def _run_run_range(args) -> int:
@@ -300,6 +526,12 @@ def main() -> int:
         payload = planner.approve_volume(project_dir=project_dir, volume=args.volume)
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 0 if payload.get("ok") else 2
+
+    if args.command == "seed-cards":
+        return _run_seed_cards(settings=settings, args=args)
+
+    if args.command == "seed-config":
+        return _run_seed_config(settings=settings, args=args)
 
     if args.command == "plan":
         payload = orchestrator.generate_plan(

@@ -148,6 +148,39 @@ class LongBookWritterOrchestrator:
                 "last_updated_chapter": 0,
             },
         )
+        # Seed roster: the author lists characters & events here, then runs `seed-cards`
+        # to let the LLM batch-fill card baselines (canon imports + alternative options).
+        write_json(
+            project_dir / "00_config" / "seed_roster.json",
+            {
+                "book_id": book_id,
+                "characters": [
+                    {
+                        "name": "示例主角",
+                        "is_canon": False,
+                        "brief": "在此填写本角色的设定要点（仅 1-2 段即可）",
+                    },
+                    {
+                        "name": "示例原作角色",
+                        "is_canon": True,
+                        "brief": "可选：补充本书对该原作角色的特别改编方向",
+                    },
+                ],
+                "events": [
+                    {
+                        "event_id": "example_event",
+                        "name": "示例事件",
+                        "is_canon": True,
+                        "planned_chapter_range": "1-10",
+                        "brief": "可选：本事件本书要做的改写方向",
+                    }
+                ],
+                "notes": (
+                    "把所有重要角色/事件列在这里，然后运行 `python -m longbookwritter.cli seed-cards "
+                    "--book-id <id>` 自动生成卡片初稿与备选项。"
+                ),
+            },
+        )
         write_json(
             project_dir / "00_config" / "cards" / "events" / "_template.json",
             {

@@ -212,6 +212,8 @@ def list_character_cards(project_dir: Path) -> list[CharacterCard]:
         return []
     cards: list[CharacterCard] = []
     for path in sorted(base.glob("*.json")):
+        if path.name.startswith("_"):
+            continue
         try:
             cards.append(CharacterCard.from_json(read_json(path)))
         except Exception:
@@ -225,6 +227,8 @@ def list_event_cards(project_dir: Path) -> list[EventCard]:
         return []
     cards: list[EventCard] = []
     for path in sorted(base.glob("*.json")):
+        if path.name.startswith("_"):
+            continue
         try:
             cards.append(EventCard.from_json(read_json(path)))
         except Exception:
@@ -240,6 +244,8 @@ def load_character_card(project_dir: Path, name: str) -> CharacterCard | None:
     if not path.exists():
         # Fallback: search by name match across files.
         for cand in base.glob("*.json"):
+            if cand.name.startswith("_"):
+                continue
             try:
                 payload = read_json(cand)
             except Exception:
@@ -257,6 +263,8 @@ def load_event_card(project_dir: Path, event_id: str) -> EventCard | None:
     path = base / f"{_slugify(event_id)}.json"
     if not path.exists():
         for cand in base.glob("*.json"):
+            if cand.name.startswith("_"):
+                continue
             try:
                 payload = read_json(cand)
             except Exception:
