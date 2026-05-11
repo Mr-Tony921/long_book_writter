@@ -1,0 +1,14 @@
+{
+  "event_id": "example_event",
+  "name": "示例事件",
+  "status": "planned",
+  "planned_chapter_range": "1-10",
+  "cause": "",
+  "process": [],
+  "related_characters": [],
+  "current_state": "",
+  "future_direction": "",
+  "anchors_to_keep": [],
+  "deviation_from_canon": "",
+  "last_updated_chapter": 0
+}

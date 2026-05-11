@@ -1,0 +1,25 @@
+{
+  "name": "示例主角",
+  "aliases": [
+    "代号A"
+  ],
+  "role": "protagonist",
+  "importance": 5,
+  "traits": [
+    "请填写"
+  ],
+  "goals": [
+    "请填写"
+  ],
+  "likes": [],
+  "dislikes": [],
+  "background": "",
+  "current_state": "",
+  "relationships": {},
+  "secret": "",
+  "arc_progress": "",
+  "appearance_keywords": [],
+  "speech_style": "",
+  "deviation_from_canon": "",
+  "last_updated_chapter": 0
+}
