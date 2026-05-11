@@ -161,7 +161,20 @@ class HitlPlanner:
             }
 
         ensure_dir(_draft_dir(project_dir))
-        prompt = self._draft_prompt(plan=plan, target=target, extra_brief=extra_brief)
+        canon_ref = ""
+        cfg_path = _book_config_path(project_dir)
+        if cfg_path.exists():
+            try:
+                cfg = read_json(cfg_path)
+                canon_ref = str(cfg.get("canon_reference", "") or "")
+            except Exception:
+                canon_ref = ""
+        prompt = self._draft_prompt(
+            plan=plan,
+            target=target,
+            extra_brief=extra_brief,
+            canon_reference=canon_ref,
+        )
         result = self.llm_client.generate_text(prompt_text=prompt)
         if not result.success:
             return {"ok": False, "error": f"llm_failed:{result.content[:200]}"}
@@ -217,7 +230,13 @@ class HitlPlanner:
         write_json(plan_path, plan)
         return {"ok": True, "draft_sha": sha, "draft_path": str(draft_path)}
 
-    def _draft_prompt(self, plan: dict, target: dict, extra_brief: str) -> str:
+    def _draft_prompt(
+        self,
+        plan: dict,
+        target: dict,
+        extra_brief: str,
+        canon_reference: str = "",
+    ) -> str:
         master = plan.get("plan", {}) or {}
         positioning = master.get("book_positioning", "")
         theme = master.get("core_theme", "")
@@ -228,6 +247,12 @@ class HitlPlanner:
         label = target.get("volume_label", "")
         transition_in = target.get("transition_in", "")
         transition_out = target.get("transition_out", "")
+        canon_block = (
+            f"原作/前作参考资料（用于本卷剧情排序建议）：\n{canon_reference}\n"
+            if canon_reference.strip()
+            else "原作/前作参考资料：作者未在 book_config.canon_reference 中提供——请基于"
+            "全书定位与卷目标推断本卷参考脉络；不熟悉的原作请直说，不要凭空编造。\n"
+        )
         return (
             "你是长篇小说卷级策划编辑。请输出可读 markdown 草案，供人类作者审改。\n"
             "硬性要求：\n"
@@ -235,13 +260,19 @@ class HitlPlanner:
             "2. 章节列表覆盖 chapter_range 全部章节，不要漏章；每章 1-2 行（章号 + 推进点 + 钩子）。\n"
             "3. 突出本卷的换地图 / 新人物 / 新事件，给出 transition_in 与 transition_out 落地办法。\n"
             "4. 列出本卷涉及的角色卡 / 事件卡（如已存在），并标注新增者。\n"
-            "5. 在末尾给出 2-3 个 A/B/C 决策点，让人类作者勾选偏好。\n\n"
-            "草案结构（请严格遵守）：\n"
+            "5. 在“原作剧情排序建议”章节，按时间线列出本卷参考的原作/前作事件，"
+            "每条注明：事件名 / 在原作中的位置 / 本书将如何对应或改写。\n"
+            "6. 在“待人类作者补充”章节，留 4-6 条带 [TODO] 标记的空位（如改写偏向、要保留的"
+            "原作台词、要替换的角色等），方便作者直接填写。\n"
+            "7. 在末尾给出 2-3 个 A/B/C 决策点，让人类作者勾选偏好。\n\n"
+            "草案结构（请严格遵守，标题顺序不可调换）：\n"
             "## 卷定位\n"
             "## 卷目标与高潮\n"
             "## 转场设计\n"
+            "## 原作剧情排序建议\n"
             "## 章节列表\n"
             "## 涉及角色 / 事件卡\n"
+            "## 待人类作者补充\n"
             "## 决策点\n\n"
             f"全书定位：{positioning}\n"
             f"核心主题：{theme}\n"
@@ -253,5 +284,6 @@ class HitlPlanner:
             f"章节范围：{chapter_range}\n"
             f"transition_in：{transition_in or '（待编辑）'}\n"
             f"transition_out：{transition_out or '（待编辑）'}\n"
+            f"{canon_block}"
             f"作者额外指示：{extra_brief or '无'}\n"
         )

@@ -69,6 +69,12 @@ class LongBookWritterOrchestrator:
                         "owning volume has not been approved via plan-approve."
                     ),
                 },
+                "canon_reference": "",
+                "canon_reference_notes": (
+                    "可选：放入原作/前作的时间线脉络或外传指引。plan-draft 会读取本字段，"
+                    "在每卷草案的“原作剧情排序建议”一节里据此提议事件排序，再让你补充。"
+                    "字段为空时，模型会基于卷目标自行推断（不熟悉的原作时会明示）。"
+                ),
             },
         )
         write_json(
