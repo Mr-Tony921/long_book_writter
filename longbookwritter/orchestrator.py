@@ -3,15 +3,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 import re
 
+from longbookwritter.agents.card_agent import CardAgent
 from longbookwritter.agents.editor_agent import EditorAgent
 from longbookwritter.agents.memory_agent import MemoryAgent
 from longbookwritter.agents.planner_agent import PlannerAgent
 from longbookwritter.agents.publisher_agent import PublisherAgent
 from longbookwritter.agents.recap_agent import RecapAgent
 from longbookwritter.agents.reviewer_agent import ReviewerAgent
+from longbookwritter.agents.transition_agent import TransitionAgent, TransitionContext
 from longbookwritter.agents.writer_agent import WriterAgent
 from longbookwritter.config import Settings
 from longbookwritter.llm.doubao_client import DoubaoTextClient
+from longbookwritter.plan_hitl import (
+    first_unapproved_volume_for_chapter,
+    hitl_required,
+)
 from longbookwritter.schemas import PlanInput
 from longbookwritter.utils.io import append_text, ensure_dir, read_json, write_json, write_text
 
@@ -27,11 +33,16 @@ class LongBookWritterOrchestrator:
         self.publisher = PublisherAgent()
         self.memory = MemoryAgent()
         self.recap = RecapAgent(self.llm_client)
+        self.cards = CardAgent(self.llm_client)
+        self.transition = TransitionAgent()
 
-    def init_project(self, book_id: str, title: str) -> Path:
+    def init_project(self, book_id: str, title: str, hitl_required: bool = False) -> Path:
         project_dir = self.settings.projects_dir / book_id
         ensure_dir(project_dir / "00_config")
+        ensure_dir(project_dir / "00_config" / "cards" / "characters")
+        ensure_dir(project_dir / "00_config" / "cards" / "events")
         ensure_dir(project_dir / "01_plan")
+        ensure_dir(project_dir / "01_plan" / "draft")
         ensure_dir(project_dir / "02_memory")
         ensure_dir(project_dir / "03_draft")
         ensure_dir(project_dir / "04_review")
@@ -50,6 +61,13 @@ class LongBookWritterOrchestrator:
                     "writing": self.settings.doubao_lite_model,
                     "review": self.settings.doubao_lite_model,
                     "editing": self.settings.doubao_lite_model,
+                },
+                "hitl": {
+                    "required": bool(hitl_required),
+                    "notes": (
+                        "When required is true, run-range refuses to start a chapter whose "
+                        "owning volume has not been approved via plan-approve."
+                    ),
                 },
             },
         )
@@ -85,6 +103,61 @@ class LongBookWritterOrchestrator:
         write_json(
             project_dir / "02_memory" / "memory.json",
             self.memory.load_memory(project_dir / "02_memory" / "memory.json"),
+        )
+        # Title index: append-only registry of every published chapter title.
+        write_json(
+            project_dir / "01_plan" / "title_index.json",
+            {"book_id": book_id, "titles": []},
+        )
+        # Card templates: write README + one example each, so a human author can copy them.
+        write_text(
+            project_dir / "00_config" / "cards" / "README.md",
+            (
+                "# Cards directory\n\n"
+                "- `characters/<slug>.json` — character cards (traits, goals, relationships, secret).\n"
+                "- `events/<slug>.json` — event cards (cause, process, status, future direction).\n\n"
+                "Cards are read by the writer before each chapter and updated automatically after each chapter.\n"
+                "See longbookwritter/cards/store.py for the schema. Hand-edit JSON freely; missing fields fall back to safe defaults.\n"
+            ),
+        )
+        write_json(
+            project_dir / "00_config" / "cards" / "characters" / "_template.json",
+            {
+                "name": "示例主角",
+                "aliases": ["代号A"],
+                "role": "protagonist",
+                "importance": 5,
+                "traits": ["请填写"],
+                "goals": ["请填写"],
+                "likes": [],
+                "dislikes": [],
+                "background": "",
+                "current_state": "",
+                "relationships": {},
+                "secret": "",
+                "arc_progress": "",
+                "appearance_keywords": [],
+                "speech_style": "",
+                "deviation_from_canon": "",
+                "last_updated_chapter": 0,
+            },
+        )
+        write_json(
+            project_dir / "00_config" / "cards" / "events" / "_template.json",
+            {
+                "event_id": "example_event",
+                "name": "示例事件",
+                "status": "planned",
+                "planned_chapter_range": "1-10",
+                "cause": "",
+                "process": [],
+                "related_characters": [],
+                "current_state": "",
+                "future_direction": "",
+                "anchors_to_keep": [],
+                "deviation_from_canon": "",
+                "last_updated_chapter": 0,
+            },
         )
         self._init_engineering_logs(project_dir=project_dir)
         self._record_engineering_event(
@@ -182,6 +255,31 @@ class LongBookWritterOrchestrator:
         project_dir = self.settings.projects_dir / book_id
         requested_title = chapter_title
         chapter_title = self._normalize_chapter_title(chapter_title)
+
+        # HITL gate: refuse to start if the owning volume has not been approved.
+        if hitl_required(project_dir):
+            unapproved_vol = first_unapproved_volume_for_chapter(project_dir, chapter_no)
+            if unapproved_vol is not None:
+                self._notify_human_with_planner(
+                    project_dir=project_dir,
+                    chapter_no=chapter_no,
+                    chapter_title=requested_title or chapter_title,
+                    reason=f"hitl_volume_{unapproved_vol}_not_approved",
+                )
+                return {
+                    "book_id": book_id,
+                    "chapter_no": chapter_no,
+                    "chapter_title": requested_title or chapter_title,
+                    "passed": False,
+                    "review_score": 0,
+                    "attempts": [],
+                    "published_path": "",
+                    "human_intervention_required": True,
+                    "stop_reason": "hitl_block",
+                    "unapproved_volume": unapproved_vol,
+                    "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+                }
+
         plan_data = self._load_plan(project_dir)
         anchors = plan_data.get("plan", {}).get("anchors", {})
         character_constraints = self._load_character_constraints(project_dir)
@@ -202,6 +300,23 @@ class LongBookWritterOrchestrator:
             story_facts=story_facts,
             recap_state=memory.get("recap_state", {}),
         )
+
+        # Splice transition guidance for volume openers / closers.
+        transition_ctx = self.transition.context_for_chapter(chapter_no, plan_data)
+        if transition_ctx is not None:
+            guidance = transition_ctx.guidance_text()
+            if guidance:
+                planner_brief = planner_brief + "\n" + guidance
+
+        # Inject relevant cards (if any) into the planner brief.
+        card_brief = self.cards.build_card_brief(
+            project_dir=project_dir,
+            chapter_no=chapter_no,
+            chapter_goal=chapter_goal,
+            chapter_seed_focus=memory.get("recap_state", {}).get("next_focus", []) or [],
+        )
+        if card_brief.get("text"):
+            planner_brief = planner_brief + "\n" + card_brief["text"]
 
         attempts: list[dict] = []
         final_text = ""
@@ -253,6 +368,7 @@ class LongBookWritterOrchestrator:
                 story_facts=story_facts,
                 planner_brief=planner_brief,
                 min_words=min_words,
+                banned_phrases=character_constraints.get("banned_phrases", []) or [],
             )
             must_fix_items = review.get("must_fix", []) or []
             review_passed = bool(review.get("pass", False))
@@ -327,37 +443,35 @@ class LongBookWritterOrchestrator:
             return result
 
         final_text = self._sanitize_for_publish(final_text)
-        title_generation_error = ""
-        generated_title = ""
-        # If caller already provides a valid title, publish directly to avoid extra LLM latency/failure.
-        if requested_title and chapter_title:
-            generated_title = chapter_title
-        else:
-            for _ in range(2):
-                title_by_writer = self.writer.suggest_chapter_title(
-                    chapter_text=final_text,
-                    chapter_no=chapter_no,
-                    chapter_goal=chapter_goal,
-                )
-                if not title_by_writer.get("ok", False):
-                    title_generation_error = title_by_writer.get("error", "title_generation_failed")
-                    continue
-                generated_title = self._normalize_chapter_title(title_by_writer.get("title", ""))
-                if generated_title:
-                    break
-                title_generation_error = "empty_or_too_short_title"
 
-        if not generated_title:
+        # Resolve a unique title (writer first; on collisions retry with avoid_titles; no numeric suffix fallback).
+        title_resolution = self._resolve_unique_title(
+            project_dir=project_dir,
+            chapter_no=chapter_no,
+            requested_title=requested_title,
+            chapter_text=final_text,
+            chapter_goal=chapter_goal,
+        )
+        chapter_title = title_resolution["title"]
+        title_generation_error = title_resolution["error"]
+        if not chapter_title:
             self._notify_human_with_planner(
                 project_dir=project_dir,
                 chapter_no=chapter_no,
-                chapter_title=requested_title or chapter_title,
+                chapter_title=requested_title or "",
                 reason=f"title_generation_failed: {title_generation_error}",
             )
-            result = {
+            self._record_engineering_event(
+                project_dir=project_dir,
+                category="issue",
+                title=f"章节标题生成失败 chapter={chapter_no}",
+                details=title_generation_error,
+                level="warn",
+            )
+            return {
                 "book_id": book_id,
                 "chapter_no": chapter_no,
-                "chapter_title": requested_title or chapter_title,
+                "chapter_title": requested_title or "",
                 "requested_chapter_title": requested_title,
                 "passed": False,
                 "review_score": review.get("score", 0),
@@ -367,29 +481,45 @@ class LongBookWritterOrchestrator:
                 "human_intervention_required": True,
                 "title_generation_error": title_generation_error,
             }
-            self._record_engineering_event(
-                project_dir=project_dir,
-                category="issue",
-                title=f"章节标题生成失败 chapter={chapter_no}",
-                details=title_generation_error,
-                level="warn",
-            )
-            return result
 
-        chapter_title = self._ensure_unique_chapter_title(
-            project_dir=project_dir,
-            chapter_no=chapter_no,
-            chapter_title=generated_title,
-        )
         published_path = self.publisher.publish_chapter(
             publish_dir=project_dir / "05_publish",
             chapter_no=chapter_no,
             chapter_title=chapter_title,
             chapter_text=final_text,
         )
+        self._record_title(project_dir=project_dir, chapter_no=chapter_no, chapter_title=chapter_title)
         self._update_project_index(project_dir=project_dir, chapter_no=chapter_no)
         self._update_memory(project_dir=project_dir, chapter_no=chapter_no, chapter_title=chapter_title, chapter_goal=chapter_goal)
         recap_payload = self._refresh_recap(project_dir=project_dir, plan_data=plan_data)
+
+        # After publishing, ask the card agent to apply minimal-diff updates.
+        card_update_result: dict = {}
+        if card_brief.get("character_names") or card_brief.get("event_ids"):
+            card_update_result = self.cards.apply_chapter_updates(
+                project_dir=project_dir,
+                chapter_no=chapter_no,
+                chapter_title=chapter_title,
+                chapter_text=final_text,
+                relevant_character_names=card_brief.get("character_names", []),
+                relevant_event_ids=card_brief.get("event_ids", []),
+            )
+
+        # Trigger a human alert when the next volume's plan is not approved yet.
+        should_alert, next_volume_no = self.transition.should_alert_next_volume(
+            chapter_no=chapter_no,
+            plan_data=plan_data,
+        )
+        if should_alert and next_volume_no is not None:
+            self._notify_human_with_planner(
+                project_dir=project_dir,
+                chapter_no=chapter_no,
+                chapter_title=chapter_title,
+                reason=(
+                    f"next_volume_{next_volume_no}_plan_not_approved; "
+                    f"run plan-draft --volume {next_volume_no} then plan-approve"
+                ),
+            )
 
         result = {
             "book_id": book_id,
@@ -401,6 +531,9 @@ class LongBookWritterOrchestrator:
             "attempts": attempts,
             "published_path": str(published_path),
             "recap_source": recap_payload.get("source", "unknown"),
+            "card_updates": card_update_result,
+            "title_retries": title_resolution.get("retries", 0),
+            "transition_active": transition_ctx is not None,
             "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         }
         if save_artifacts:
@@ -634,37 +767,110 @@ class LongBookWritterOrchestrator:
             return previous_guidance
         return "\n".join(lines)
 
-    def _ensure_unique_chapter_title(self, project_dir: Path, chapter_no: int, chapter_title: str) -> str:
-        publish_dir = project_dir / "05_publish"
-        if not publish_dir.exists():
-            return chapter_title
+    def _resolve_unique_title(
+        self,
+        project_dir: Path,
+        chapter_no: int,
+        requested_title: str,
+        chapter_text: str,
+        chapter_goal: str,
+        max_retries: int = 3,
+    ) -> dict:
+        """Pick a title that doesn't collide with any previously published title.
 
-        used_titles: set[str] = set()
-        for md in publish_dir.glob("*.md"):
+        Strategy:
+        1. If the caller supplied an explicit title, accept it iff it does not
+           collide. Collisions force a re-roll via the writer.
+        2. Otherwise, ask the writer for a colloquial title. On a collision
+           retry up to ``max_retries`` times, passing the used-title list as
+           ``avoid_titles`` so the writer changes angle.
+        3. After the retry budget is exhausted, return ``error`` and let the
+           pipeline halt with a human alert. No silent numeric/phrase suffix.
+        """
+        used_titles = self._load_used_titles(project_dir=project_dir, exclude_chapter_no=chapter_no)
+
+        # Try the caller-supplied title first.
+        if requested_title:
+            normalized = self._normalize_chapter_title(requested_title)
+            if normalized and normalized not in used_titles:
+                return {"title": normalized, "error": "", "retries": 0}
+
+        avoid: list[str] = sorted(used_titles)
+        last_error = ""
+        for attempt in range(1, max_retries + 1):
+            res = self.writer.suggest_chapter_title(
+                chapter_text=chapter_text,
+                chapter_no=chapter_no,
+                chapter_goal=chapter_goal,
+                avoid_titles=avoid,
+                attempt=attempt,
+            )
+            if not res.get("ok", False):
+                last_error = res.get("error", "title_generation_failed")
+                continue
+            cand = self._normalize_chapter_title(res.get("title", ""))
+            if not cand:
+                last_error = "empty_or_too_short_title"
+                continue
+            if cand in used_titles:
+                last_error = "title_collision_after_retry"
+                # Add to avoid list and try again.
+                avoid = sorted(set(avoid) | {cand})
+                continue
+            return {"title": cand, "error": "", "retries": attempt - 1}
+
+        return {"title": "", "error": last_error or "title_resolution_exhausted", "retries": max_retries}
+
+    def _load_used_titles(self, project_dir: Path, exclude_chapter_no: int | None) -> set[str]:
+        used: set[str] = set()
+        idx_path = project_dir / "01_plan" / "title_index.json"
+        if idx_path.exists():
             try:
-                no = int(md.name[:4])
+                payload = read_json(idx_path)
+                for entry in payload.get("titles", []) or []:
+                    if exclude_chapter_no is not None and int(entry.get("chapter_no", 0)) == exclude_chapter_no:
+                        continue
+                    title = str(entry.get("title", "")).strip()
+                    if title:
+                        used.add(title)
             except Exception:
-                continue
-            if no == chapter_no:
-                continue
-            stem = md.stem
-            if "_" not in stem:
-                continue
-            used_titles.add(stem.split("_", 1)[1])
+                pass
+        # Backward-compat: also scan the publish dir so legacy projects without title_index work.
+        publish_dir = project_dir / "05_publish"
+        if publish_dir.exists():
+            for md in publish_dir.glob("*.md"):
+                try:
+                    no = int(md.name[:4])
+                except Exception:
+                    continue
+                if exclude_chapter_no is not None and no == exclude_chapter_no:
+                    continue
+                stem = md.stem
+                if "_" not in stem:
+                    continue
+                used.add(stem.split("_", 1)[1])
+        return used
 
-        if chapter_title not in used_titles:
-            return chapter_title
-
-        suffixes = ["（二）", "（续）", "（下）", "·再起", "·反转", "·加压", "·升级"]
-        for sfx in suffixes:
-            candidate = self._normalize_chapter_title(f"{chapter_title}{sfx}")
-            if candidate not in used_titles:
-                return candidate
-        for idx in range(2, 20):
-            candidate = self._normalize_chapter_title(f"{chapter_title}{idx}")
-            if candidate not in used_titles:
-                return candidate
-        return chapter_title
+    def _record_title(self, project_dir: Path, chapter_no: int, chapter_title: str) -> None:
+        idx_path = project_dir / "01_plan" / "title_index.json"
+        if idx_path.exists():
+            try:
+                payload = read_json(idx_path)
+            except Exception:
+                payload = {"titles": []}
+        else:
+            payload = {"titles": []}
+        titles = payload.get("titles", []) or []
+        # Deduplicate: replace any existing entry for this chapter_no.
+        titles = [t for t in titles if int(t.get("chapter_no", -1)) != chapter_no]
+        titles.append({
+            "chapter_no": chapter_no,
+            "title": chapter_title,
+            "published_at_utc": datetime.now(timezone.utc).isoformat(),
+        })
+        titles.sort(key=lambda t: int(t.get("chapter_no", 0)))
+        payload["titles"] = titles
+        write_json(idx_path, payload)
 
     def _normalize_chapter_title(self, title: str) -> str:
         t = (title or "").strip()
@@ -724,14 +930,15 @@ class LongBookWritterOrchestrator:
     def _load_character_constraints(self, project_dir: Path) -> dict:
         path = project_dir / "00_config" / "character_constraints.json"
         if not path.exists():
-            return {"fixed_names": [], "banned_aliases": {}}
+            return {"fixed_names": [], "banned_aliases": {}, "banned_phrases": []}
         try:
             obj = read_json(path)
         except Exception:
-            return {"fixed_names": [], "banned_aliases": {}}
+            return {"fixed_names": [], "banned_aliases": {}, "banned_phrases": []}
         return {
             "fixed_names": obj.get("fixed_names", []),
             "banned_aliases": obj.get("banned_aliases", {}),
+            "banned_phrases": obj.get("banned_phrases", []) or [],
         }
 
     def _load_story_facts(self, project_dir: Path) -> dict:

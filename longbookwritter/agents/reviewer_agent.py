@@ -19,6 +19,7 @@ class ReviewerAgent:
         story_facts: dict | None = None,
         planner_brief: str = "",
         min_words: int = 2000,
+        banned_phrases: list[str] | None = None,
     ) -> dict:
         review_policy = policy
         if planner_brief:
@@ -39,6 +40,7 @@ class ReviewerAgent:
             chapter_no=chapter_no or 0,
             planner_brief=planner_brief,
             min_words=min_words,
+            banned_phrases=list(banned_phrases or []),
         )
         return self._merge_reviews(llm_review=llm_review, local_review=local_review)
 
@@ -90,6 +92,7 @@ class ReviewerAgent:
         chapter_no: int,
         planner_brief: str,
         min_words: int,
+        banned_phrases: list[str] | None = None,
     ) -> dict:
         issues: list[dict] = []
         must_fix: list[str] = []
@@ -144,6 +147,20 @@ class ReviewerAgent:
             )
             must_fix.append(f"将章节扩写到不少于{min_words}字，补足场景推进和人物互动。")
             score -= 30
+
+        # Banned phrase guard: e.g. words that would leak the protagonist's hidden identity.
+        for phrase in banned_phrases or []:
+            phrase_text = str(phrase).strip()
+            if phrase_text and phrase_text in chapter_text:
+                issues.append(
+                    {
+                        "type": "consistency",
+                        "detail": f"出现禁用短语（疑似剧透/身份泄露）：{phrase_text}",
+                        "severity": "high",
+                    }
+                )
+                must_fix.append(f"将“{phrase_text}”从正文移除或改写为合规表达。")
+                score -= 40
 
         # Character consistency guard: banned aliases are hard failures.
         banned_aliases = character_constraints.get("banned_aliases", {})

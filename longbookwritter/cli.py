@@ -6,6 +6,7 @@ from pathlib import Path
 from longbookwritter.config import load_settings
 from longbookwritter.llm.doubao_client import DoubaoTextClient
 from longbookwritter.orchestrator import LongBookWritterOrchestrator
+from longbookwritter.plan_hitl import HitlPlanner, list_volume_statuses
 from longbookwritter.schemas import PlanInput
 from longbookwritter.utils.profile import load_run_profile
 
@@ -43,6 +44,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_init = sub.add_parser("init-project", help="Initialize a book project")
     p_init.add_argument("--book-id", required=True)
     p_init.add_argument("--title", required=True)
+    p_init.add_argument(
+        "--hitl",
+        action="store_true",
+        help="Mark book_config.hitl.required=true so run-range refuses unapproved volumes.",
+    )
 
     p_plan = sub.add_parser("plan", help="Generate initial master plan")
     p_plan.add_argument("--book-id", required=True)
@@ -89,6 +95,32 @@ def build_parser() -> argparse.ArgumentParser:
     p_range.add_argument("--no-stop-on-plot-block", dest="stop_on_plot_block", action="store_false")
     p_range.add_argument("--save-artifacts", action="store_true")
     p_range.set_defaults(skip_existing=True, stop_on_plot_block=True)
+
+    p_draft = sub.add_parser(
+        "plan-draft",
+        help="Draft a per-volume plan into 01_plan/draft/volume_<N>.md (LLM, human-editable).",
+    )
+    p_draft.add_argument("--book-id", required=True)
+    p_draft.add_argument("--volume", required=True, type=int)
+    p_draft.add_argument("--brief", default="", help="Extra steering text for the planner.")
+    p_draft.add_argument(
+        "--force",
+        action="store_true",
+        help="Overwrite an existing draft file (otherwise plan-draft is a no-op).",
+    )
+
+    p_review = sub.add_parser(
+        "plan-review",
+        help="List per-volume draft + approval state. SHA mismatch means the user edited the draft.",
+    )
+    p_review.add_argument("--book-id", required=True)
+
+    p_approve = sub.add_parser(
+        "plan-approve",
+        help="Lock the (possibly edited) draft into master_plan.json with SHA stamp.",
+    )
+    p_approve.add_argument("--book-id", required=True)
+    p_approve.add_argument("--volume", required=True, type=int)
 
     p_check = sub.add_parser(
         "check-connectivity",
@@ -200,9 +232,74 @@ def main() -> int:
     orchestrator = LongBookWritterOrchestrator(settings=settings)
 
     if args.command == "init-project":
-        project_dir = orchestrator.init_project(book_id=args.book_id, title=args.title)
-        print(json.dumps({"ok": True, "project_dir": str(project_dir)}, ensure_ascii=False, indent=2))
+        project_dir = orchestrator.init_project(
+            book_id=args.book_id,
+            title=args.title,
+            hitl_required=args.hitl,
+        )
+        print(
+            json.dumps(
+                {"ok": True, "project_dir": str(project_dir), "hitl_required": args.hitl},
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         return 0
+
+    if args.command == "plan-draft":
+        project_dir = settings.projects_dir / args.book_id
+        if not project_dir.exists():
+            print(json.dumps({"ok": False, "error": f"project_dir_missing: {project_dir}"}, ensure_ascii=False, indent=2))
+            return 2
+        client = DoubaoTextClient(settings=settings)
+        planner = HitlPlanner(llm_client=client)
+        payload = planner.draft_volume(
+            project_dir=project_dir,
+            volume=args.volume,
+            extra_brief=args.brief,
+            force=args.force,
+        )
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return 0 if payload.get("ok") else 2
+
+    if args.command == "plan-review":
+        project_dir = settings.projects_dir / args.book_id
+        if not project_dir.exists():
+            print(json.dumps({"ok": False, "error": f"project_dir_missing: {project_dir}"}, ensure_ascii=False, indent=2))
+            return 2
+        statuses = list_volume_statuses(project_dir=project_dir)
+        payload = {
+            "ok": True,
+            "book_id": args.book_id,
+            "volumes": [
+                {
+                    "volume": s.volume,
+                    "label": s.label,
+                    "chapter_range": s.chapter_range,
+                    "approved": s.approved,
+                    "approved_at_utc": s.approved_at_utc,
+                    "draft_exists": s.draft_exists,
+                    "draft_path": s.draft_path,
+                    "draft_sha": s.draft_sha,
+                    "locked_sha": s.locked_sha,
+                    "sha_match": s.sha_match,
+                }
+                for s in statuses
+            ],
+        }
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return 0
+
+    if args.command == "plan-approve":
+        project_dir = settings.projects_dir / args.book_id
+        if not project_dir.exists():
+            print(json.dumps({"ok": False, "error": f"project_dir_missing: {project_dir}"}, ensure_ascii=False, indent=2))
+            return 2
+        client = DoubaoTextClient(settings=settings)
+        planner = HitlPlanner(llm_client=client)
+        payload = planner.approve_volume(project_dir=project_dir, volume=args.volume)
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        return 0 if payload.get("ok") else 2
 
     if args.command == "plan":
         payload = orchestrator.generate_plan(
